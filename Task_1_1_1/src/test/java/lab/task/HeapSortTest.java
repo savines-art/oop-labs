@@ -66,4 +66,11 @@ public class HeapSortTest {
         HeapSort.sort(arr);
         assertTrue(isSorted(arr));
     }
+
+    @Test
+    void equalElements() {
+        int[] arr = new int[] {1, 1, 1, 1, 1, 1, 1, 1};
+        HeapSort.sort(arr);
+        assertTrue(isSorted(arr));
+    }
 }
