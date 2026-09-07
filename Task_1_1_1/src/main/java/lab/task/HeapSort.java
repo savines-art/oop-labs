@@ -2,6 +2,9 @@ package lab.task;
 
 import java.util.Arrays;
 
+/**
+ * implementation of heapsort for arrays of numbers
+ */
 public class HeapSort {
     /**
      * @param arr
@@ -26,7 +29,9 @@ public class HeapSort {
         while (curr * 2 + 1 < end) {
             int next1 = curr * 2 + 1;
             int next2 = next1 + 1 < end ? next1 + 1 : next1;
-            if (arr[curr] > arr[next1] && arr[curr] > arr[next2]) return;
+            if (arr[curr] > arr[next1] && arr[curr] > arr[next2]) {
+                return;
+            }
 
             int smaller = arr[next1] > arr[next2] ? next1 : next2;
             swap(arr, curr, smaller);
@@ -46,7 +51,14 @@ public class HeapSort {
         }
     }
 
+    /**
+     * the heapsort algorythm itself
+     * @param arr
+     */
     public static void sort(int[] arr) {
+        if (arr == null || arr.length == 1) {
+            return;
+        }
         arrayToHeap(arr);
         for (int end = arr.length; end > 0; end--) {
             swap(arr, 0, end - 1);
@@ -54,6 +66,10 @@ public class HeapSort {
         }
     }
 
+    /**
+     * demonstration of heapsort algorythm
+     * @param args
+     */
     public static void main(String[] args) {
         int[] arr = new int[] {9, 8, 8, 7, 3, 4, 7, 6, 5, 4};
         HeapSort.sort(arr);
