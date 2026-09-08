@@ -42,9 +42,6 @@ public class HeapSort {
      * @param arr an array
      */
     private static void arrayToHeap(int[] arr) {
-        if (arr.length == 1) {
-            return;
-        }
         for (int middle = arr.length / 2; middle > -1; middle--) {
             siftDown(arr, middle, arr.length);
         }
@@ -55,7 +52,7 @@ public class HeapSort {
      * @param arr an array (can be null and algorythm does nothing in that case)
      */
     public static void sort(int[] arr) {
-        if (arr == null) {
+        if (arr == null || arr.length == 1) {
             return;
         }
         arrayToHeap(arr);
