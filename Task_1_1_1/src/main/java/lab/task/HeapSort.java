@@ -41,6 +41,9 @@ public class HeapSort {
      * @param arr an array
      */
     private static void arrayToHeap(int[] arr) {
+        if (arr.length < 2) {
+            return;
+        }
         int middle = arr.length / 2;
         while (middle > -1) {
             siftDown(arr, middle, arr.length);
