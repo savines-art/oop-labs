@@ -52,7 +52,7 @@ public class HeapSort {
      * @param arr an array (can be null and algorythm does nothing in that case)
      */
     public static void sort(int[] arr) {
-        if (arr == null || arr.length == 1) {
+        if (arr == null || arr.length <= 1) {
             return;
         }
         arrayToHeap(arr);
@@ -68,7 +68,7 @@ public class HeapSort {
      */
     public static void main(String[] args) {
         int[] arr = new int[] {1, 2, 7, 9, 8, 5, 4};
-        HeapSort.sort(arr);
+        HeapSort.sort(new int[] {1, 2, 7, 9, 8, 5, 4});
         System.out.println(Arrays.toString(arr));
     }
 }
