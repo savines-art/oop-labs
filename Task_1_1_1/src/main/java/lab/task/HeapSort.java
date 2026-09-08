@@ -1,14 +1,16 @@
 package lab.task;
 
+import java.util.Arrays;
+
 /**
- * implementation of heapsort for arrays of numbers
+ * implementation of heapsort for arrays of numbers.
  */
 public class HeapSort {
     /**
+     * swaps two elements in arr on index1 and index2.
      * @param arr an array
      * @param index1 first index
      * @param index2 second index
-     * swaps two elements in arr on index1 and index2
      */
     private static void swap(int[] arr, int index1, int index2) {
         int tmp = arr[index1];
@@ -17,7 +19,7 @@ public class HeapSort {
     }
 
     /**
-     * sifts down arr[index] until arr doesn't satisfy the binary heap condition
+     * sifts down arr[index] until arr doesn't satisfy the binary heap condition.
      * @param arr an array
      * @param index element to sift
      * @param end where to stop sifting
@@ -38,10 +40,13 @@ public class HeapSort {
     }
 
     /**
+     * turns an array into a binary heap.
      * @param arr an array
-     * turns an array into a binary heap
      */
     private static void arrayToHeap(int[] arr) {
+        if (arr == null || arr.length == 1) {
+            return;
+        }
         int middle = arr.length / 2;
         while (middle > -1) {
             siftDown(arr, middle, arr.length);
@@ -50,8 +55,8 @@ public class HeapSort {
     }
 
     /**
-     * the heapsort algorythm itself
-     * @param arr an array
+     * the in-place heapsort algorythm itself.
+     * @param arr an array (can be null and algorythm does nothing in that case)
      */
     public static void sort(int[] arr) {
         if (arr == null || arr.length == 1) {
@@ -62,5 +67,15 @@ public class HeapSort {
             swap(arr, 0, end - 1);
             siftDown(arr, 0, end - 1);
         }
+    }
+
+    /**
+     * main method for java command.
+     * @param args arguments(there's none)
+     */
+    public static void main(String[] args) {
+        int[] arr = new int[] {1, 2, 7, 9, 8, 5, 4};
+        HeapSort.sort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }
