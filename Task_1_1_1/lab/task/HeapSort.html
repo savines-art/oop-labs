@@ -76,7 +76,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">HeapSort</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">implementation of heapsort for arrays of numbers</div>
+<div class="block">implementation of heapsort for arrays of numbers.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -105,9 +105,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#sort(int%5B%5D)" class="member-name-link">sort</a><wbr>(int[]&nbsp;arr)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#main(java.lang.String%5B%5D)" class="member-name-link">main</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;args)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">the heapsort algorythm itself</div>
+<div class="block">main method for java command.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#sort(int%5B%5D)" class="member-name-link">sort</a><wbr>(int[]&nbsp;arr)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">the in-place heapsort algorythm itself.</div>
 </div>
 </div>
 </div>
@@ -144,10 +149,21 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="sort(int[])">
 <h3>sort</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sort</span><wbr><span class="parameters">(int[]&nbsp;arr)</span></div>
-<div class="block">the heapsort algorythm itself</div>
+<div class="block">the in-place heapsort algorythm itself.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>arr</code> - an array</dd>
+<dd><code>arr</code> - an array (can be null and algorythm does nothing in that case)</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="main(java.lang.String[])">
+<h3>main</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">main</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;args)</span></div>
+<div class="block">main method for java command.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>args</code> - arguments(there's none)</dd>
 </dl>
 </section>
 </li>
