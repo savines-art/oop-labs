@@ -25,32 +25,25 @@ public class HeapSort {
      * @param end where to stop sifting
      */
     private static void siftDown(int[] arr, int index, int end) {
-        int curr = index;
-        while (curr * 2 + 1 < end) {
-            int next1 = curr * 2 + 1;
+        while (index * 2 + 1 < end) {
+            int next1 = index * 2 + 1;
             int next2 = next1 + 1 < end ? next1 + 1 : next1;
-            if (arr[curr] > arr[next1] && arr[curr] > arr[next2]) {
+            if (arr[index] > arr[next1] && arr[index] > arr[next2]) {
                 return;
             }
-
             int smaller = arr[next1] > arr[next2] ? next1 : next2;
-            swap(arr, curr, smaller);
-            curr = smaller;
+            swap(arr, index, smaller);
+            index = smaller;
         }
     }
 
     /**
-     * turns an array into a binary heap.
+     * turns an array (can't be null) into a binary heap.
      * @param arr an array
      */
     private static void arrayToHeap(int[] arr) {
-        if (arr == null || arr.length == 1) {
-            return;
-        }
-        int middle = arr.length / 2;
-        while (middle > -1) {
+        for (int middle = arr.length / 2; middle > -1; middle--) {
             siftDown(arr, middle, arr.length);
-            middle--;
         }
     }
 
@@ -70,7 +63,7 @@ public class HeapSort {
     }
 
     /**
-     * main method for java command.
+     * main method for java command and demonstration.
      * @param args arguments(there's none)
      */
     public static void main(String[] args) {
