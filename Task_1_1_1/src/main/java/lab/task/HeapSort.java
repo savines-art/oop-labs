@@ -1,7 +1,5 @@
 package lab.task;
-
 import java.util.Arrays;
-
 /**
  * implementation of heapsort for arrays of numbers.
  */
@@ -17,7 +15,6 @@ public class HeapSort {
         arr[index1] = arr[index2];
         arr[index2] = tmp;
     }
-
     /**
      * sifts down arr[index] until arr doesn't satisfy the binary heap condition.
      * @param arr an array
@@ -26,17 +23,17 @@ public class HeapSort {
      */
     private static void siftDown(int[] arr, int index, int end) {
         while (index * 2 + 1 < end) {
-            int next1 = index * 2 + 1;
-            int next2 = next1 + 1 < end ? next1 + 1 : next1;
-            if (arr[index] > arr[next1] && arr[index] > arr[next2]) {
+            int next = index * 2 + 1;
+            if (next + 1 < end && arr[next] < arr[next + 1]) {
+                next++;
+            }
+            if (arr[index] > arr[next]) {
                 return;
             }
-            int smaller = arr[next1] > arr[next2] ? next1 : next2;
-            swap(arr, index, smaller);
-            index = smaller;
+            swap(arr, index, next);
+            index = next;
         }
     }
-
     /**
      * turns an array (can't be null) into a binary heap.
      * @param arr an array
@@ -46,7 +43,6 @@ public class HeapSort {
             siftDown(arr, middle, arr.length);
         }
     }
-
     /**
      * the in-place heapsort algorythm itself.
      * @param arr an array (can be null and algorythm does nothing in that case)
@@ -61,7 +57,6 @@ public class HeapSort {
             siftDown(arr, 0, end - 1);
         }
     }
-
     /**
      * main method for java command and demonstration.
      * @param args arguments(there's none)
