@@ -23,7 +23,7 @@ public class Blackjack {
     Blackjack(Deck deck) {
         this.deck = deck;
         this.dealer = new Dealer();
-        this.user= new User();
+        this.user = new User();
     }
 
 

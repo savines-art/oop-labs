@@ -17,7 +17,6 @@ public class DealerTest {
      */
     @Test
     void dealerHand() {
-        Dealer dealer = new Dealer();
         List<Card> cards = new ArrayList<>();
 
         cards.add(new Card("ace", "hearts"));
@@ -26,11 +25,12 @@ public class DealerTest {
         cards.add(new Card("king", "diamonds"));
 
         Deck deck = new Deck(cards);
-
+        Dealer dealer = new Dealer();
         dealer.start(deck);
         assertEquals("[diamonds king(10), *hidden*]", dealer.toString());
         dealer.makeMove(deck);
 
-        assertEquals("[diamonds king(10), spades three(3), clubs four(4)] => 17", dealer.toString());
+        assertEquals("[diamonds king(10), spades three(3), clubs four(4)] => 17",
+                dealer.toString());
     }
 }

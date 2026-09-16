@@ -18,7 +18,8 @@ public class Deck {
     Deck() {
         this.cards = new Stack<>();
         this.amount = 1;
-        String[] values = new String[]{"two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king", "ace"};
+        String[] values = new String[]{"two", "three", "four", "five", "six", "seven",
+                "eight", "nine", "ten", "jack", "queen", "king", "ace"};
         String[] suits = new String[]{"hearts", "spades", "diamonds", "clubs"};
 
         for (String suit : suits) {
@@ -38,7 +39,8 @@ public class Deck {
         this.cards = new Stack<>();
         this.amount = amount;
 
-        String[] values = new String[]{"two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king", "ace"};
+        String[] values = new String[]{"two", "three", "four", "five", "six", "seven",
+                "eight", "nine", "ten", "jack", "queen", "king", "ace"};
         String[] suits = new String[]{"hearts", "spades", "diamonds", "clubs"};
         for (int i = 0; i < this.amount; i++) {
             for (String suit : suits) {

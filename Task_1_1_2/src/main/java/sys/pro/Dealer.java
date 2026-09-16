@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * Dealer player class.
  */
-public class Dealer extends Player{
+public class Dealer extends Player {
     /**
      * How dealer starts the round (hides the card in the end).
      * @param deck game's deck.
@@ -26,7 +26,7 @@ public class Dealer extends Player{
     @Override
     public void makeMove(Deck deck) {
         this.hand.get(this.hand.size() - 1).flip();
-        while(this.score < 17) {
+        while (this.score < 17) {
             this.getCard(deck);
             System.out.print("Dealer's hand: " + this.toString());
             if (deck.isEmpty()) {

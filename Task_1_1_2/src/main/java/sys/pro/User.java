@@ -3,7 +3,7 @@ package sys.pro;
 /**
  * User player class.
  */
-public class User extends Player{
+public class User extends Player {
     /**
      * How user starts every round.
      * @param deck game's deck.

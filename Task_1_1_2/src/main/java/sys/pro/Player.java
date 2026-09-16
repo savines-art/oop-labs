@@ -10,9 +10,17 @@ abstract public class Player {
     List<Card> hand = new ArrayList<>();
     int score = 0;
 
-    public void start(Deck deck){}
-    public void makeMove(Deck deck){}
-    public String toString(){ return ""; }
+    public void start(Deck deck) {
+
+    }
+
+    public void makeMove(Deck deck) {
+
+    }
+
+    public String toString() {
+        return "";
+    }
 
     /**
      * Take the card from the deck and place it in your hand.

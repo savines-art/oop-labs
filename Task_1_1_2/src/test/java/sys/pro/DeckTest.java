@@ -21,7 +21,7 @@ public class DeckTest {
         Collections.shuffle(deck.cards);
         int i = 0;
         Card card = deck.take();
-        while(card != null) {
+        while (card != null) {
             i++;
             card = deck.take();
         }
@@ -39,7 +39,7 @@ public class DeckTest {
             Collections.shuffle(deck.cards);
             int j = 0;
             Card card = deck.take();
-            while(card != null) {
+            while (card != null) {
                 j++;
                 card = deck.take();
             }

@@ -31,6 +31,7 @@ public class UserTest {
         user.makeMove(deck);
         user.makeMove(deck);
 
-        assertEquals("[diamonds king(10), spades three(3), clubs four(4), hearts ace(1)] => 18", user.toString());
+        assertEquals("[diamonds king(10), spades three(3), clubs four(4), hearts ace(1)] => 18",
+                user.toString());
     }
 }

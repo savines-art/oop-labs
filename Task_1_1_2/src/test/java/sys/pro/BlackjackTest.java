@@ -20,16 +20,15 @@ public class BlackjackTest {
      */
     @Test
     void userWinsAtStart() {
-        int rounds = 1;
-        String input = "0";
-        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         List<Card> cards = new ArrayList<>();
 
         cards.add(new Card("ace", "clubs"));
         cards.add(new Card("ace", "hearts"));
         cards.add(new Card("ace", "spades"));
         cards.add(new Card("ten", "clubs"));
-
+        int rounds = 1;
+        String input = "0";
+        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         Deck deck = new Deck(cards);
         Blackjack game = new Blackjack(deck);
         game.game(in, rounds);
@@ -41,9 +40,6 @@ public class BlackjackTest {
      */
     @Test
     void userWins21() {
-        int rounds = 1;
-        String input = "1";
-        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         List<Card> cards = new ArrayList<>();
 
         cards.add(new Card("four", "spades"));
@@ -54,6 +50,9 @@ public class BlackjackTest {
 
         Deck deck = new Deck(cards);
         Blackjack game = new Blackjack(deck);
+        int rounds = 1;
+        String input = "1";
+        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         game.game(in, rounds);
         assertArrayEquals(new int[] {1}, game.results);
     }
@@ -63,9 +62,6 @@ public class BlackjackTest {
      */
     @Test
     void dealerWins21() {
-        int rounds = 1;
-        String input = "1 0";
-        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         List<Card> cards = new ArrayList<>();
 
         cards.add(new Card("six", "spades"));
@@ -77,6 +73,9 @@ public class BlackjackTest {
 
         Deck deck = new Deck(cards);
         Blackjack game = new Blackjack(deck);
+        int rounds = 1;
+        String input = "1 0";
+        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         game.game(in, rounds);
         assertArrayEquals(new int[] {-1}, game.results);
     }
@@ -86,9 +85,6 @@ public class BlackjackTest {
      */
     @Test
     void userWinsEnd() {
-        int rounds = 1;
-        String input = "0";
-        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         List<Card> cards = new ArrayList<>();
 
         cards.add(new Card("ten", "hearts"));
@@ -100,6 +96,9 @@ public class BlackjackTest {
 
         Deck deck = new Deck(cards);
         Blackjack game = new Blackjack(deck);
+        int rounds = 1;
+        String input = "0";
+        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         game.game(in, rounds);
         assertArrayEquals(new int[] {1}, game.results);
     }
@@ -109,9 +108,6 @@ public class BlackjackTest {
      */
     @Test
     void dealerWinsEnd() {
-        int rounds = 1;
-        String input = "0";
-        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         List<Card> cards = new ArrayList<>();
 
         cards.add(new Card("ace", "clubs"));
@@ -121,6 +117,9 @@ public class BlackjackTest {
 
         Deck deck = new Deck(cards);
         Blackjack game = new Blackjack(deck);
+        String input = "0";
+        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+        int rounds = 1;
         game.game(in, rounds);
         assertArrayEquals(new int[] {-1}, game.results);
     }
@@ -130,9 +129,6 @@ public class BlackjackTest {
      */
     @Test
     void draw() {
-        int rounds = 1;
-        String input = "0";
-        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         List<Card> cards = new ArrayList<>();
 
         cards.add(new Card("ten", "clubs"));
@@ -142,6 +138,9 @@ public class BlackjackTest {
 
         Deck deck = new Deck(cards);
         Blackjack game = new Blackjack(deck);
+        int rounds = 1;
+        String input = "0";
+        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         game.game(in, rounds);
         assertArrayEquals(new int[] {0}, game.results);
     }
@@ -151,9 +150,6 @@ public class BlackjackTest {
      */
     @Test
     void userLoss() {
-        int rounds = 1;
-        String input = "1";
-        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         List<Card> cards = new ArrayList<>();
 
         cards.add(new Card("jack", "clubs"));
@@ -164,6 +160,9 @@ public class BlackjackTest {
 
         Deck deck = new Deck(cards);
         Blackjack game = new Blackjack(deck);
+        int rounds = 1;
+        String input = "1";
+        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         game.game(in, rounds);
         assertArrayEquals(new int[] {-1}, game.results);
     }
@@ -173,11 +172,7 @@ public class BlackjackTest {
      */
     @Test
     void dealerLoss() {
-        int rounds = 1;
-        String input = "0";
-        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         List<Card> cards = new ArrayList<>();
-
         cards.add(new Card("jack", "clubs"));
         cards.add(new Card("ten", "clubs"));
         cards.add(new Card("six", "hearts"));
@@ -186,6 +181,9 @@ public class BlackjackTest {
 
         Deck deck = new Deck(cards);
         Blackjack game = new Blackjack(deck);
+        int rounds = 1;
+        String input = "0";
+        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         game.game(in, rounds);
         assertArrayEquals(new int[] {1}, game.results);
     }
