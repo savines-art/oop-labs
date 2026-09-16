@@ -11,7 +11,13 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Test for whole game.
+ */
 public class BlackjackTest {
+    /**
+     * When user scores 21 in the beginning.
+     */
     @Test
     void userWinsAtStart() {
         int rounds = 1;
@@ -30,6 +36,9 @@ public class BlackjackTest {
         assertArrayEquals(new int[] {1}, game.results);
     }
 
+    /**
+     * The user scores 21 during the game.
+     */
     @Test
     void userWins21() {
         int rounds = 1;
@@ -49,6 +58,9 @@ public class BlackjackTest {
         assertArrayEquals(new int[] {1}, game.results);
     }
 
+    /**
+     * Dealer scores 21 during the game.
+     */
     @Test
     void dealerWins21() {
         int rounds = 1;
@@ -69,6 +81,9 @@ public class BlackjackTest {
         assertArrayEquals(new int[] {-1}, game.results);
     }
 
+    /**
+     * User wins by scoring higher than dealer.
+     */
     @Test
     void userWinsEnd() {
         int rounds = 1;
@@ -89,6 +104,9 @@ public class BlackjackTest {
         assertArrayEquals(new int[] {1}, game.results);
     }
 
+    /**
+     * Dealer wins by scoring higher than user.
+     */
     @Test
     void dealerWinsEnd() {
         int rounds = 1;
@@ -107,6 +125,9 @@ public class BlackjackTest {
         assertArrayEquals(new int[] {-1}, game.results);
     }
 
+    /**
+     * Draw case.
+     */
     @Test
     void draw() {
         int rounds = 1;
@@ -125,6 +146,9 @@ public class BlackjackTest {
         assertArrayEquals(new int[] {0}, game.results);
     }
 
+    /**
+     * User scores above 21.
+     */
     @Test
     void userLoss() {
         int rounds = 1;
@@ -144,6 +168,9 @@ public class BlackjackTest {
         assertArrayEquals(new int[] {-1}, game.results);
     }
 
+    /**
+     * Dealer scores above 21.
+     */
     @Test
     void dealerLoss() {
         int rounds = 1;

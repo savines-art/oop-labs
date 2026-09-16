@@ -8,7 +8,13 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+/**
+ * Tests for user's hand.
+ */
 public class UserTest {
+    /**
+     * Testing that user's hand and scores are printed correctly.
+     */
     @Test
     void userHand() {
         User user = new User();

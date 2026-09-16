@@ -8,7 +8,13 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+/**
+ * Tests for different constructs of decks.
+ */
 public class DeckTest {
+    /**
+     * Default deck.
+     */
     @Test
     void exhaustDeck() {
         Deck deck = new Deck();
@@ -23,6 +29,9 @@ public class DeckTest {
         assertEquals(52, i);
     }
 
+    /**
+     * Multiple decks from 2 to 10.
+     */
     @Test
     void twoDecks() {
         for (int i = 2; i < 11; i++) {
@@ -39,6 +48,9 @@ public class DeckTest {
         }
     }
 
+    /**
+     * Custom deck test.
+     */
     @Test
     void checkDeck() {
         List<Card> cards = new ArrayList<>();

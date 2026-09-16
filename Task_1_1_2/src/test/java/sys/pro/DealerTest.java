@@ -8,7 +8,13 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+/**
+ * Tests for dealer's hand.
+ */
 public class DealerTest {
+    /**
+     * Testing dealer's hand if his card is hidden or not.
+     */
     @Test
     void dealerHand() {
         Dealer dealer = new Dealer();

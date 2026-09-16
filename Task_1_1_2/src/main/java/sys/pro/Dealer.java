@@ -3,7 +3,14 @@ package sys.pro;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Dealer player class.
+ */
 public class Dealer extends Player{
+    /**
+     * How dealer starts the round (hides the card in the end).
+     * @param deck game's deck.
+     */
     @Override
     public void start(Deck deck) {
         this.hand.add(deck.take());
@@ -12,6 +19,10 @@ public class Dealer extends Player{
         this.countScore();
     }
 
+    /**
+     * The whole dealer's turn. Stops if the deck is empty or scored above 17.
+     * @param deck game's deck.
+     */
     @Override
     public void makeMove(Deck deck) {
         this.hand.get(this.hand.size() - 1).flip();
@@ -24,6 +35,10 @@ public class Dealer extends Player{
         }
     }
 
+    /**
+     * Returns dealer's hand with hidden card or not.
+     * @return dealer's hand and score (if last card is open).
+     */
     @Override
     public String toString() {
         this.countScore();

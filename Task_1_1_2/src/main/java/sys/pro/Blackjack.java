@@ -4,6 +4,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Blackjack game implementation.
+ */
 public class Blackjack {
 
     public Deck deck;
@@ -13,12 +16,22 @@ public class Blackjack {
     Scanner playerMoves;
     int rounds;
 
+    /**
+     * Constructor: initializes game deck and players.
+     * @param deck the deck used during the game.
+     */
     Blackjack(Deck deck) {
         this.deck = deck;
         this.dealer = new Dealer();
         this.user= new User();
     }
 
+
+    /**
+     * Start of the game.
+     * @param playerMoves player's input.
+     * @param rounds how many rounds are you going to play.
+     */
     public void start(InputStream playerMoves, int rounds) {
         this.playerMoves = new Scanner(playerMoves);
         this.results = new int[rounds];
@@ -26,6 +39,10 @@ public class Blackjack {
         System.out.println("Welcome to blackjack!");
     }
 
+    /**
+     * One game round.
+     * @param number number of the current round.
+     */
     private void round(int number) {
         System.out.println("Round " + number);
         System.out.println("Dealer gave cards.");
@@ -67,14 +84,29 @@ public class Blackjack {
         this.results[number] = 0;
     }
 
+    /**
+     * Checking if player scored 21.
+     * @param player player or dealer.
+     * @return true if player scored 21, false otherwise.
+     */
     private static boolean win(Player player) {
         return player.score == 21;
     }
 
+    /**
+     * Checking if player scored above 21.
+     * @param player player or dealer.
+     * @return true if player scored above 21, false otherwise.
+     */
     private static boolean lose(Player player) {
         return player.score > 21;
     }
 
+
+    /**
+     * turn of the player.
+     * @return 1, -1 or 0 if player won, lost or scored less than 21.
+     */
     private int userTurn() {
         System.out.println("Your turn: enter 1 to take card or 0 to stop: ");
         this.user.countScore();
@@ -99,6 +131,10 @@ public class Blackjack {
         return 0;
     }
 
+    /**
+     * Turn of the dealer.
+     * @return 1, -1 or 0 if dealer won, lost or scored less than 21.
+     */
     private int dealerTurn() {
         System.out.println("Dealer's turn");
         this.dealer.countScore();
@@ -114,6 +150,11 @@ public class Blackjack {
         return 0;
     }
 
+    /**
+     * Plays the game round by round, clearing hands after each round.
+     * @param playerMoves player's input.
+     * @param rounds amount of rounds.
+     */
     public void game(InputStream playerMoves, int rounds) {
         start(playerMoves, rounds);
         for (int i = 0; i < this.rounds; i++) {
@@ -123,6 +164,10 @@ public class Blackjack {
         }
     }
 
+    /**
+     * main method for playing the game yourself.
+     * @param args no arguments there.
+     */
     public static void main(String[] args) {
         int number = 1;
         Blackjack game = new Blackjack(new Deck(number));

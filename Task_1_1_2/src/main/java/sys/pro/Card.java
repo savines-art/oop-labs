@@ -1,11 +1,19 @@
 package sys.pro;
 
+/**
+ * Card class.
+ */
 public class Card {
     final String name;
     final String suit;
     int value;
     boolean isHidden;
 
+    /**
+     * Constructor: gives the card its name, suit and score, based on card's name.
+     * @param name name of the card.
+     * @param suit suit of the card.
+     */
     Card(String name, String suit) {
         this.name = name;
         this.suit = suit;
@@ -25,10 +33,17 @@ public class Card {
         }
     }
 
+    /**
+     * Hide or open the card (for dealer).
+     */
     public void flip() {
         this.isHidden = !this.isHidden;
     }
 
+    /**
+     * Method to print card as its suit, name and score.
+     * @return "*hidden*" if card is hidden or cards suit, name and score in parentheses.
+     */
     public String toString() {
         if (this.isHidden) {
             return "*hidden*";
