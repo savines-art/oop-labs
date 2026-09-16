@@ -14,7 +14,7 @@ public class Dealer extends Player{
 
     @Override
     public void makeMove(Deck deck) {
-        this.hand.getLast().flip();
+        this.hand.get(this.hand.size() - 1).flip();
         while(this.score < 17) {
             this.getCard(deck);
             System.out.print("Dealer's hand: " + this.toString());
@@ -27,7 +27,7 @@ public class Dealer extends Player{
     @Override
     public String toString() {
         this.countScore();
-        Card last = this.hand.getLast();
+        Card last = this.hand.get(this.hand.size() - 1);
         if (!last.isHidden) {
             return this.hand.toString() + " => " + this.score;
         }
