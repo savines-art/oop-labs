@@ -8,7 +8,7 @@ public class Dealer extends Player{
     public void start(Deck deck) {
         this.hand.add(deck.take());
         this.hand.add(deck.take());
-        this.hand.getLast().flip();
+        this.hand.get(this.hand.size() - 1).flip();
         this.countScore();
     }
 
