@@ -10,8 +10,8 @@ public class User extends Player {
      */
     @Override
     public void start(Deck deck) {
-        this.hand.add(deck.take());
-        this.hand.add(deck.take());
+        this.getCard(deck);
+        this.getCard(deck);
         this.countScore();
     }
 

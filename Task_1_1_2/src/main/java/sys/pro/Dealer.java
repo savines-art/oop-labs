@@ -13,8 +13,8 @@ public class Dealer extends Player {
      */
     @Override
     public void start(Deck deck) {
-        this.hand.add(deck.take());
-        this.hand.add(deck.take());
+        this.getCard(deck);
+        this.getCard(deck);
         this.hand.get(this.hand.size() - 1).flip();
         this.countScore();
     }
@@ -28,7 +28,7 @@ public class Dealer extends Player {
         this.hand.get(this.hand.size() - 1).flip();
         while (this.score < 17) {
             this.getCard(deck);
-            System.out.print("Dealer's hand: " + this.toString());
+            System.out.println("Dealer's hand: " + this.toString());
             if (deck.isEmpty()) {
                 return;
             }

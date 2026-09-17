@@ -16,6 +16,40 @@ import java.util.ArrayList;
  */
 public class BlackjackTest {
     /**
+     * Deck gets empty.
+     */
+    @Test
+    void exhaustDeck() {
+        List<Card> cards = new ArrayList<>();
+        int rounds = 5;
+        String input = "1 1";
+        cards.add(new Card("ace", "diamonds"));
+        cards.add(new Card("ace", "clubs"));
+        cards.add(new Card("ace", "hearts"));
+        cards.add(new Card("ace", "spades"));
+        cards.add(new Card("nine", "clubs"));
+        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+        Deck deck = new Deck(cards);
+        Blackjack game = new Blackjack(deck);
+        game.game(in, rounds);
+        assertArrayEquals(new int[] {1, 0, 0, 0, 0}, game.results);
+    }
+
+    /**
+     * Deck is empty at the very beginning.
+     */
+    @Test
+    void emptyDeck() {
+        List<Card> cards = new ArrayList<>();
+        int rounds = 5;
+        String input = "";
+        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+        Deck deck = new Deck(cards);
+        Blackjack game = new Blackjack(deck);
+        game.game(in, rounds);
+        assertArrayEquals(new int[] {0, 0, 0, 0, 0}, game.results);
+    }
+    /**
      * When user scores 21 in the beginning.
      */
     @Test

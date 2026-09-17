@@ -122,7 +122,7 @@ public class Blackjack {
             }
             if (this.deck.isEmpty()) {
                 System.out.println("The deck is empty!");
-                return 0;
+                break;
             }
         }
         System.out.println("You finished your turn.");
@@ -158,6 +158,13 @@ public class Blackjack {
     public void game(InputStream playerMoves, int rounds) {
         start(playerMoves, rounds);
         for (int i = 0; i < this.rounds; i++) {
+            if (this.deck.isEmpty()) {
+                for (int j = i; j < this.rounds; j++) {
+                    results[j] = 0;
+                }
+                System.out.println("The deck is empty!");
+                break;
+            }
             round(i);
             this.user.hand = new ArrayList<>();
             this.dealer.hand = new ArrayList<>();
