@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Class for any type player. Contains the score player got and their hand.
  */
 abstract public class Player {
-    List<Card> hand = new ArrayList<>();
+    public List<Card> hand = new ArrayList<>();
 
     /**
      * Abstract method for starting the round for both players.

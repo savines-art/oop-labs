@@ -17,7 +17,6 @@ public class UserTest {
      */
     @Test
     void userHand() {
-        User user = new User();
         List<Card> cards = new ArrayList<>();
 
         cards.add(new Card(CardName.ACE, CardSuit.HEARTS));
@@ -26,7 +25,7 @@ public class UserTest {
         cards.add(new Card(CardName.KING, CardSuit.DIAMONDS));
 
         Deck deck = new Deck(cards);
-
+        User user = new User();
         user.start(deck);
         user.getCard(deck);
         user.getCard(deck);

@@ -40,9 +40,13 @@ public class BlackjackTest {
         Deck deck = new Deck(cards);
         Blackjack game = new Blackjack(deck, in, rounds);
         game.game();
-        assertArrayEquals(new GameCase[] {GameCase.USER_SCORED, GameCase.DEALER_SCORED, GameCase.DRAW, GameCase.DRAW, GameCase.DRAW}, game.results);
+        assertArrayEquals(new GameCase[] {GameCase.USER_SCORED, GameCase.DEALER_SCORED,
+                GameCase.DRAW, GameCase.DRAW, GameCase.DRAW}, game.results);
     }
 
+    /**
+     * User took the last card and then tried to take more.
+     */
     @Test
     void exhaustDeckByPlayer() {
         List<Card> cards = new ArrayList<>();
@@ -66,7 +70,8 @@ public class BlackjackTest {
         Deck deck = new Deck(cards);
         Blackjack game = new Blackjack(deck, in, rounds);
         game.game();
-        assertArrayEquals(new GameCase[] {GameCase.USER_SCORED, GameCase.USER_SCORED, GameCase.DRAW, GameCase.DRAW, GameCase.DRAW}, game.results);
+        assertArrayEquals(new GameCase[] {GameCase.USER_SCORED, GameCase.USER_SCORED,
+                GameCase.DRAW, GameCase.DRAW, GameCase.DRAW}, game.results);
     }
 
     /**
@@ -81,8 +86,10 @@ public class BlackjackTest {
         Deck deck = new Deck(cards);
         Blackjack game = new Blackjack(deck, in, rounds);
         game.game();
-        assertArrayEquals(new GameCase[] {GameCase.DRAW, GameCase.DRAW, GameCase.DRAW, GameCase.DRAW, GameCase.DRAW}, game.results);
+        assertArrayEquals(new GameCase[] {GameCase.DRAW, GameCase.DRAW,
+                GameCase.DRAW, GameCase.DRAW, GameCase.DRAW}, game.results);
     }
+
     /**
      * When user scores 21 in the beginning.
      */
