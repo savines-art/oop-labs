@@ -8,11 +8,10 @@ import java.util.Scanner;
  * Blackjack game implementation.
  */
 public class Blackjack {
-
     public Deck deck;
     public Dealer dealer;
     public User user;
-    public int[] results;
+    public GameCase[] results;
     Scanner playerMoves;
     int rounds;
 
@@ -20,24 +19,16 @@ public class Blackjack {
      * Constructor: initializes game deck and players.
      * @param deck the deck used during the game.
      */
-    Blackjack(Deck deck) {
+    Blackjack(Deck deck, InputStream playerMoves, int rounds) {
         this.deck = deck;
         this.dealer = new Dealer();
         this.user = new User();
-    }
-
-
-    /**
-     * Start of the game.
-     * @param playerMoves player's input.
-     * @param rounds how many rounds are you going to play.
-     */
-    public void start(InputStream playerMoves, int rounds) {
         this.playerMoves = new Scanner(playerMoves);
-        this.results = new int[rounds];
+        this.results = new GameCase[rounds];
         this.rounds = rounds;
-        System.out.println("Welcome to blackjack!");
     }
+    //todo: initialize playerMoves in constructor
+
 
     /**
      * One game round.
@@ -53,35 +44,35 @@ public class Blackjack {
         int playerRes = userTurn();
         if (playerRes == 1) {
             System.out.println("You win the round!");
-            this.results[number] = 1;
+            this.results[number] = GameCase.USER_BLACKJACK;
             return;
         } else if (playerRes == -1) {
             System.out.println("Dealer wins the round!");
-            this.results[number] = -1;
+            this.results[number] = GameCase.USER_OVERSCORED;
             return;
         }
-
+        //todo: make getScore
         int dealerRes = dealerTurn();
         if (dealerRes == 1) {
             System.out.println("Dealer wins the round!");
-            this.results[number] = -1;
+            this.results[number] = GameCase.DEALER_BLACKJACK;
             return;
         } else if (dealerRes == -1) {
             System.out.println("You win the round!");
-            this.results[number] = 1;
+            this.results[number] = GameCase.DEALER_OVERSCORED;
             return;
         }
-        if (this.user.score > this.dealer.score) {
+        if (this.user.countScore() > this.dealer.countScore()) {
             System.out.println("You win the round!");
-            this.results[number] = 1;
+            this.results[number] = GameCase.USER_SCORED;
             return;
-        } else if (this.user.score < this.dealer.score) {
+        } else if (this.user.countScore() < this.dealer.countScore()) {
             System.out.println("Dealer wins the round!");
-            this.results[number] = -1;
+            this.results[number] = GameCase.DEALER_SCORED;
             return;
         }
         System.out.println("Draw!");
-        this.results[number] = 0;
+        this.results[number] = GameCase.DRAW;
     }
 
     /**
@@ -89,8 +80,8 @@ public class Blackjack {
      * @param player player or dealer.
      * @return true if player scored 21, false otherwise.
      */
-    private static boolean win(Player player) {
-        return player.score == 21;
+    private static boolean winByBlackjack(Player player) {
+        return player.countScore() == 21;
     }
 
     /**
@@ -98,8 +89,8 @@ public class Blackjack {
      * @param player player or dealer.
      * @return true if player scored above 21, false otherwise.
      */
-    private static boolean lose(Player player) {
-        return player.score > 21;
+    private static boolean loseByOverscore(Player player) {
+        return player.countScore() > 21;
     }
 
 
@@ -108,16 +99,17 @@ public class Blackjack {
      * @return 1, -1 or 0 if player won, lost or scored less than 21.
      */
     private int userTurn() {
-        System.out.println("Your turn: enter 1 to take card or 0 to stop: ");
         this.user.countScore();
-        if (win(this.user)) {
+        if (winByBlackjack(this.user)) {
             return 1;
         }
         while (this.playerMoves.hasNextInt() && this.playerMoves.nextInt() == 1) {
-            this.user.makeMove(this.deck);
-            if (win(this.user)) {
+            System.out.println("Your turn: enter 1 to take card or 0 to stop: ");
+            this.user.getCard(this.deck);
+            System.out.println("Your hand: " + this.user.toString());
+            if (winByBlackjack(this.user)) {
                 return 1;
-            } else if (lose(this.user)) {
+            } else if (loseByOverscore(this.user)) {
                 return -1;
             }
             if (this.deck.isEmpty()) {
@@ -138,10 +130,15 @@ public class Blackjack {
     private int dealerTurn() {
         System.out.println("Dealer's turn");
         this.dealer.countScore();
-        this.dealer.makeMove(this.deck);
-        if (win(this.dealer)) {
+        this.dealer.hand.getLast().flip();
+        while (dealer.countScore() < 17 && !this.deck.isEmpty()) {
+            this.dealer.getCard(this.deck);
+            System.out.println("Dealer's hand: " + this.dealer.toString());
+        }
+
+        if (winByBlackjack(this.dealer)) {
             return 1;
-        } else if (lose(this.dealer)) {
+        } else if (loseByOverscore(this.dealer)) {
             return -1;
         }
         System.out.println("Dealer finished their turn.");
@@ -152,15 +149,13 @@ public class Blackjack {
 
     /**
      * Plays the game round by round, clearing hands after each round.
-     * @param playerMoves player's input.
-     * @param rounds amount of rounds.
      */
-    public void game(InputStream playerMoves, int rounds) {
-        start(playerMoves, rounds);
+    public void game() {
+        System.out.println("Welcome to Blackjack!");
         for (int i = 0; i < this.rounds; i++) {
             if (this.deck.isEmpty()) {
                 for (int j = i; j < this.rounds; j++) {
-                    results[j] = 0;
+                    results[j] = GameCase.DRAW;
                 }
                 System.out.println("The deck is empty!");
                 break;
@@ -177,7 +172,7 @@ public class Blackjack {
      */
     public static void main(String[] args) {
         int number = 1;
-        Blackjack game = new Blackjack(new Deck(number));
-        game.game(System.in, 5);
+        Blackjack game = new Blackjack(new Deck(number), System.in, number);
+        game.game();
     }
 }

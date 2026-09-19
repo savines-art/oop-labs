@@ -8,19 +8,18 @@ import java.util.ArrayList;
  */
 abstract public class Player {
     List<Card> hand = new ArrayList<>();
-    int score = 0;
 
-    public void start(Deck deck) {
+    /**
+     * Abstract method for starting the round for both players.
+     * @param deck game's deck, which players take two cards from.
+     */
+    public abstract void start(Deck deck);
 
-    }
-
-    public void makeMove(Deck deck) {
-
-    }
-
-    public String toString() {
-        return "";
-    }
+    /**
+     * Abstract method to print hands.
+     * @return returns the hand as all card names and total score.
+     */
+    public abstract String toString();
 
     /**
      * Take the card from the deck and place it in your hand.
@@ -38,18 +37,18 @@ abstract public class Player {
     /**
      * Counts the score and sets it (checking the aces too).
      */
-    public void countScore() {
-        this.score = 0;
+    public int countScore() {
+        int score = 0;
         for (Card card : this.hand) {
-            this.score += card.value;
+            score += card.score();
         }
-        if (this.score > 21) {
+        if (score > 21) {
             for (Card card : this.hand) {
-                if (card.value == 11) {
-                    card.value = 1;
-                    this.score -= 10;
+                if (card.name().equals("ace")) {
+                    score -= 10;
                 }
             }
         }
+        return score;
     }
 }

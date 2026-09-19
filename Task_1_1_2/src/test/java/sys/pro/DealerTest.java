@@ -19,18 +19,19 @@ public class DealerTest {
     void dealerHand() {
         List<Card> cards = new ArrayList<>();
 
-        cards.add(new Card("ace", "hearts"));
-        cards.add(new Card("four", "clubs"));
-        cards.add(new Card("three", "spades"));
-        cards.add(new Card("king", "diamonds"));
+        cards.add(new Card(CardName.ACE, CardSuit.HEARTS));
+        cards.add(new Card(CardName.FOUR, CardSuit.CLUBS));
+        cards.add(new Card(CardName.THREE, CardSuit.SPADES));
+        cards.add(new Card(CardName.KING, CardSuit.DIAMONDS));
 
         Deck deck = new Deck(cards);
         Dealer dealer = new Dealer();
         dealer.start(deck);
-        assertEquals("[diamonds king(10), *hidden*]", dealer.toString());
-        dealer.makeMove(deck);
+        assertEquals("[diamonds king, *hidden*]", dealer.toString());
+        dealer.hand.getLast().flip();
+        dealer.getCard(deck);
 
-        assertEquals("[diamonds king(10), spades three(3), clubs four(4)] => 17",
+        assertEquals("[diamonds king, spades three, clubs four] => 17",
                 dealer.toString());
     }
 }

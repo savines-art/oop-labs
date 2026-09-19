@@ -12,17 +12,6 @@ public class User extends Player {
     public void start(Deck deck) {
         this.getCard(deck);
         this.getCard(deck);
-        this.countScore();
-    }
-
-    /**
-     * One iteration of user's move.
-     * @param deck game's deck.
-     */
-    @Override
-    public void makeMove(Deck deck) {
-        this.getCard(deck);
-        System.out.println("Your hand: " + this.toString());
     }
 
     /**
@@ -31,7 +20,6 @@ public class User extends Player {
      */
     @Override
     public String toString() {
-        this.countScore();
-        return this.hand.toString() + " => " + this.score;
+        return this.hand.toString() + " => " + this.countScore();
     }
 }

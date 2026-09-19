@@ -20,18 +20,18 @@ public class UserTest {
         User user = new User();
         List<Card> cards = new ArrayList<>();
 
-        cards.add(new Card("ace", "hearts"));
-        cards.add(new Card("four", "clubs"));
-        cards.add(new Card("three", "spades"));
-        cards.add(new Card("king", "diamonds"));
+        cards.add(new Card(CardName.ACE, CardSuit.HEARTS));
+        cards.add(new Card(CardName.FOUR, CardSuit.CLUBS));
+        cards.add(new Card(CardName.THREE, CardSuit.SPADES));
+        cards.add(new Card(CardName.KING, CardSuit.DIAMONDS));
 
         Deck deck = new Deck(cards);
 
         user.start(deck);
-        user.makeMove(deck);
-        user.makeMove(deck);
+        user.getCard(deck);
+        user.getCard(deck);
 
-        assertEquals("[diamonds king(10), spades three(3), clubs four(4), hearts ace(1)] => 18",
+        assertEquals("[diamonds king, spades three, clubs four, hearts ace] => 18",
                 user.toString());
     }
 }

@@ -55,10 +55,10 @@ public class DeckTest {
     void checkDeck() {
         List<Card> cards = new ArrayList<>();
 
-        cards.add(new Card("ace", "hearts"));
-        cards.add(new Card("four", "clubs"));
-        cards.add(new Card("three", "spades"));
-        cards.add(new Card("king", "diamonds"));
+        cards.add(new Card(CardName.ACE, CardSuit.HEARTS));
+        cards.add(new Card(CardName.FOUR, CardSuit.CLUBS));
+        cards.add(new Card(CardName.THREE, CardSuit.SPADES));
+        cards.add(new Card(CardName.KING, CardSuit.DIAMONDS));
         Deck deck = new Deck(cards);
 
         for (int i = cards.size() - 1; i > -1; i--) {

@@ -15,24 +15,7 @@ public class Dealer extends Player {
     public void start(Deck deck) {
         this.getCard(deck);
         this.getCard(deck);
-        this.hand.get(this.hand.size() - 1).flip();
-        this.countScore();
-    }
-
-    /**
-     * The whole dealer's turn. Stops if the deck is empty or scored above 17.
-     * @param deck game's deck.
-     */
-    @Override
-    public void makeMove(Deck deck) {
-        this.hand.get(this.hand.size() - 1).flip();
-        while (this.score < 17) {
-            this.getCard(deck);
-            System.out.println("Dealer's hand: " + this.toString());
-            if (deck.isEmpty()) {
-                return;
-            }
-        }
+        this.hand.getLast().flip();
     }
 
     /**
@@ -41,10 +24,9 @@ public class Dealer extends Player {
      */
     @Override
     public String toString() {
-        this.countScore();
-        Card last = this.hand.get(this.hand.size() - 1);
+        Card last = this.hand.getLast();
         if (!last.isHidden) {
-            return this.hand.toString() + " => " + this.score;
+            return this.hand.toString() + " => " + this.countScore();
         }
         return this.hand.toString();
     }

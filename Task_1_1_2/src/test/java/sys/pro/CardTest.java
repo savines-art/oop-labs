@@ -13,9 +13,9 @@ public class CardTest {
      */
     @Test
     void testPrinting() {
-        Card card = new Card("ace", "clubs");
+        Card card = new Card(CardName.ACE, CardSuit.CLUBS);
         assertFalse(card.isHidden);
-        assertEquals("clubs ace(11)", card.toString());
+        assertEquals("clubs ace", card.toString());
         card.flip();
         assertEquals("*hidden*", card.toString());
     }

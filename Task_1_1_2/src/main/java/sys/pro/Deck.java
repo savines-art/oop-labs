@@ -9,8 +9,8 @@ import java.util.ArrayList;
  * Deck class to implement Blackjack's deck.
  */
 public class Deck {
-    final int amount;
-    Stack<Card> cards;
+    private final int amount;
+    public Stack<Card> cards;
 
     /**
      * Default constructor, creating one deck and shuffling the stack of cards.
@@ -18,15 +18,8 @@ public class Deck {
     Deck() {
         this.cards = new Stack<>();
         this.amount = 1;
-        String[] values = new String[]{"two", "three", "four", "five", "six", "seven",
-                "eight", "nine", "ten", "jack", "queen", "king", "ace"};
-        String[] suits = new String[]{"hearts", "spades", "diamonds", "clubs"};
 
-        for (String suit : suits) {
-            for (String val : values) {
-                cards.push(new Card(val, suit));
-            }
-        }
+        this.fillDeck();
 
         Collections.shuffle(this.cards);
     }
@@ -39,18 +32,19 @@ public class Deck {
         this.cards = new Stack<>();
         this.amount = amount;
 
-        String[] values = new String[]{"two", "three", "four", "five", "six", "seven",
-                "eight", "nine", "ten", "jack", "queen", "king", "ace"};
-        String[] suits = new String[]{"hearts", "spades", "diamonds", "clubs"};
         for (int i = 0; i < this.amount; i++) {
-            for (String suit : suits) {
-                for (String val : values) {
-                    cards.push(new Card(val, suit));
-                }
-            }
+            this.fillDeck();
         }
 
         Collections.shuffle(this.cards);
+    }
+
+    private void fillDeck() {
+        for (CardName name : CardName.values()) {
+            for (CardSuit suit : CardSuit.values()) {
+                this.cards.push(new Card(name, suit));
+            }
+        }
     }
 
     /**
@@ -68,7 +62,7 @@ public class Deck {
      * @return taken card.
      */
     public Card take() {
-        if (this.cards.empty()) {
+        if (this.isEmpty()) {
             return null;
         }
         return this.cards.pop();
