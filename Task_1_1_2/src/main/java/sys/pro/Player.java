@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * Class for any type player. Contains the score player got and their hand.
  */
-abstract public class Player {
+public abstract class Player {
     public List<Card> hand = new ArrayList<>();
 
     /**
@@ -44,7 +44,7 @@ abstract public class Player {
         }
         if (score > 21) {
             for (Card card : this.hand) {
-                if (card.name().equals("ace")) {
+                if (card.value == CardName.ACE) {
                     score -= 10;
                 }
             }

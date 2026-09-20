@@ -27,8 +27,6 @@ public class Blackjack {
         this.results = new GameCase[rounds];
         this.rounds = rounds;
     }
-    //todo: initialize playerMoves in constructor
-
 
     /**
      * One game round.
@@ -51,7 +49,6 @@ public class Blackjack {
             this.results[number] = GameCase.USER_OVERSCORED;
             return;
         }
-        //todo: make getScore
         int dealerRes = dealerTurn();
         if (dealerRes == 1) {
             System.out.println("Dealer wins the round!");
@@ -103,8 +100,11 @@ public class Blackjack {
         if (winByBlackjack(this.user)) {
             return 1;
         }
-        while (this.playerMoves.hasNextInt() && this.playerMoves.nextInt() == 1) {
+        while (true) {
             System.out.println("Your turn: enter 1 to take card or 0 to stop: ");
+            if (!this.playerMoves.hasNextInt() || this.playerMoves.nextInt() == 0) {
+                break;
+            }
             this.user.getCard(this.deck);
             System.out.println("Your hand: " + this.user.toString());
             if (winByBlackjack(this.user)) {

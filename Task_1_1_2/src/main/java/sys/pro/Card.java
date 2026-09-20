@@ -4,7 +4,6 @@ package sys.pro;
  * Card class.
  */
 public class Card {
-    //todo: make enums for names-vals, suits
     public final CardName value;
     public final CardSuit suit;
     boolean isHidden;
