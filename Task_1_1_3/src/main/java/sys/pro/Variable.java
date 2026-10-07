@@ -78,8 +78,8 @@ public class Variable extends Expression {
      * Computes the derivative of this variable with respect to the given variable.
      *
      * @param var the variable to differentiate by
-     * @return {@code new Number(1)} if {@code var}
-     * equals this variable's name, otherwise {@code new Number(0)}
+     * @return 1 if var
+     * equals this variable's name, otherwise 0.
      */
     @Override
     public Expression derivative(String var) {

@@ -3,11 +3,17 @@ package sys.pro;
 import java.util.Scanner;
 
 /**
- * Main method for demo.
+ * Main class for demo.
  * accepts user's input and tries
  * to evaluate an expression if it has no variables.
  */
 public class Main {
+    /**
+     * main method
+     * accepts user's input and tries
+     * to evaluate an expression if it has no variables.
+     * @param args accepts command line args (there's none).
+     */
     public static void main(String[] args) {
         Expression expr = Parser.parse(new Scanner(System.in));
         try {
