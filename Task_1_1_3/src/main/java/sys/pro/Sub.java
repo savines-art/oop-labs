@@ -65,7 +65,8 @@ public class Sub extends BinaryExpr {
         if (obj == null) {
             return false;
         }
-        return (obj instanceof Sub) && this.left.equals(((Sub) obj).left) && this.right.equals(((Sub) obj).right);
+        return (obj instanceof Sub)
+                && this.left.equals(((Sub) obj).left) && this.right.equals(((Sub) obj).right);
     }
 
     /**

@@ -66,7 +66,8 @@ public class Add extends BinaryExpr {
             return false;
         }
 
-        return (obj instanceof Add) && this.left.equals(((Add) obj).left) && this.right.equals(((Add) obj).right);
+        return (obj instanceof Add) && this.left.equals(((Add) obj).left)
+                && this.right.equals(((Add) obj).right);
     }
 
     /**

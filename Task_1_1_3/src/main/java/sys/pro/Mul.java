@@ -77,7 +77,8 @@ public class Mul extends BinaryExpr {
      */
     @Override
     public Expression derivative(String var) {
-        return new Add(new Mul(this.left.derivative(var), this.right), new Mul(this.left, this.right.derivative(var)));
+        return new Add(new Mul(this.left.derivative(var), this.right),
+                new Mul(this.left, this.right.derivative(var)));
     }
 
     /**

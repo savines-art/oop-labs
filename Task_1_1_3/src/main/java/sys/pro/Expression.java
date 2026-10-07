@@ -54,10 +54,8 @@ public abstract class Expression {
 
     /**
      * Evaluates this expression using a string of variable assignments.
-     *
-     * <p>The string format is {@code "name = value"} pairs separated by semicolons,
+     * The string format is {@code "name = value"} pairs separated by semicolons,
      * for example {@code "x = 1; y = 2"}. An empty string means no variables.
-     *
      * @param vars variable assignments, or an empty string
      * @return the integer result
      * @throws IllegalArgumentException if the string is a variable is missing

@@ -1,5 +1,8 @@
 package sys.pro;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 /**
  * Recursive-descent parser for symbolic arithmetic expressions.
  * Supports integer constants, variables, parentheses, and the binary
@@ -13,11 +16,23 @@ public class Parser {
     /**
      * Parses a source string into an expression.
      *
-     * @param source the expression string
+     * @param input the expression string
      * @return the parsed expression
      */
-    public static Expression parse(String source) {
-        tokens = source.replace("(", "( ").replace(")", " )").trim().split(" +");
+    public static Expression parse(Scanner input) {
+        String source = input.nextLine();
+        if (source.isBlank()) {
+            return null;
+        }
+        tokens = source.replace("(",
+                "( ").replace(")",
+                " )").replace("+",
+                " + ").replace("-",
+                " - ").replace("*",
+                " * ").replace("/",
+                " / ").trim().split("\\s+");
+        tokens = Arrays.stream(tokens)
+                .filter(s -> s != null && !s.isEmpty()).toArray(String[]::new);
         sourceSize = tokens.length;
         Expression ret = expression();
         current = 0;
@@ -41,7 +56,7 @@ public class Parser {
      */
     private static Expression term() {
         Expression expr = factor();
-        while(match("+", "-")) {
+        while (match("+", "-")) {
             String operator = previous();
             Expression right = factor();
             switch (operator) {
@@ -72,7 +87,7 @@ public class Parser {
     private static Expression factor() {
         Expression expr = primary();
 
-        while(match("/", "*")) {
+        while (match("/", "*")) {
             String operator = previous();
             Expression right = primary();
             switch (operator) {
