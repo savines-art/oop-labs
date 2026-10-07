@@ -47,7 +47,8 @@ public class Variable extends Expression {
      * Evaluates this variable without bindings.
      *
      * @return never returns normally
-     * @throws IllegalArgumentException always, because a variable cannot be evaluated without bindings
+     * @throws IllegalArgumentException always,
+     * because a variable cannot be evaluated without bindings
      */
     @Override
     protected int eval() {
@@ -79,7 +80,7 @@ public class Variable extends Expression {
      *
      * @param var the variable to differentiate by
      * @return 1 if var
-     * equals this variable's name, otherwise 0.
+     *     equals this variable's name, otherwise 0.
      */
     @Override
     public Expression derivative(String var) {
