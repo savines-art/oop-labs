@@ -65,10 +65,10 @@ loadScripts(document, 'script');</script>
 <li><a href="#toString()" tabindex="0">toString()</a></li>
 <li><a href="#eval()" tabindex="0">eval()</a></li>
 <li><a href="#eval(java.util.HashMap)" tabindex="0">eval(HashMap)</a></li>
+<li><a href="#eval(java.lang.String)" tabindex="0">eval(String)</a></li>
 <li><a href="#derivative(java.lang.String)" tabindex="0">derivative(String)</a></li>
 <li><a href="#simplify()" tabindex="0">simplify()</a></li>
 <li><a href="#print()" tabindex="0">print()</a></li>
-<li><a href="#eval(java.lang.String)" tabindex="0">eval(String)</a></li>
 </ol>
 </li>
 </ol>
@@ -235,6 +235,25 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="eval(java.lang.String)">
+<h3>eval</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">eval</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;vars)</span></div>
+<div class="block">Evaluates this expression using a string of variable assignments.
+The string format is <code>"name = value"</code> pairs separated by semicolons,
+for example <code>"x = 1; y = 2"</code>. An empty string means no variables.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>vars</code> - variable assignments, or an empty string</dd>
+<dt>Returns:</dt>
+<dd>the integer result</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if the string is a variable is missing</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="derivative(java.lang.String)">
 <h3>derivative</h3>
 <div class="horizontal-scroll">
@@ -268,25 +287,6 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">print</span>()</div>
 <div class="block">Prints the string representation of this expression to standard output.</div>
-</div>
-</section>
-</li>
-<li>
-<section class="detail" id="eval(java.lang.String)">
-<h3>eval</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">eval</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;vars)</span></div>
-<div class="block">Evaluates this expression using a string of variable assignments.
-The string format is <code>"name = value"</code> pairs separated by semicolons,
-for example <code>"x = 1; y = 2"</code>. An empty string means no variables.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>vars</code> - variable assignments, or an empty string</dd>
-<dt>Returns:</dt>
-<dd>the integer result</dd>
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if the string is a variable is missing</dd>
-</dl>
 </div>
 </section>
 </li>
