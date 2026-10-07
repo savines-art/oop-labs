@@ -67,7 +67,8 @@ public class Div extends BinaryExpr {
         if (obj == null) {
             return false;
         }
-        return (obj instanceof Div) && this.left.equals(((Div) obj).left) && this.right.equals(((Div) obj).right);
+        return (obj instanceof Div) && this.left.equals(((Div) obj).left)
+                && this.right.equals(((Div) obj).right);
     }
 
     /**

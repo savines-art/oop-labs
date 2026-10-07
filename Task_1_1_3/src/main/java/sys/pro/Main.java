@@ -2,8 +2,11 @@ package sys.pro;
 
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+/**
+ * Main method for demo.
+ * accepts user's input and tries
+ * to evaluate an expression if it has no variables.
+ */
 public class Main {
     public static void main(String[] args) {
         Expression expr = Parser.parse(new Scanner(System.in));
