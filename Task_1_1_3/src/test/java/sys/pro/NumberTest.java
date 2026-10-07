@@ -25,11 +25,11 @@ public class NumberTest {
     @Test
     void testEquals() {
         Number n1 = new Number(5);
-        Number n2 = new Number(5);
-        Number n3 = new Number(6);
-        assertEquals(n1, n2);
-        assertNotEquals(n1, n3);
         assertNotEquals(n1, null);
+        Number n2 = new Number(5);
+        assertEquals(n1, n2);
+        Number n3 = new Number(6);
+        assertNotEquals(n1, n3);
     }
 
     @Test

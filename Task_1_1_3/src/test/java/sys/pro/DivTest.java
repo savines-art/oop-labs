@@ -29,12 +29,12 @@ public class DivTest {
     @Test
     void testEquals() {
         Expression e1 = new Div(new Number(6), new Variable("x"));
-        Expression e2 = new Div(new Number(6), new Variable("x"));
-        Expression e3 = new Div(new Number(6), new Variable("y"));
-        Expression e4 = new Div(new Variable("x"), new Number(6));
-        assertEquals(e1, e2);
-        assertNotEquals(e1, e3);
         assertNotEquals(e1, null);
+        Expression e2 = new Div(new Number(6), new Variable("x"));
+        assertEquals(e1, e2);
+        Expression e3 = new Div(new Number(6), new Variable("y"));
+        assertNotEquals(e1, e3);
+        Expression e4 = new Div(new Variable("x"), new Number(6));
         assertNotEquals(e1, e4);
     }
 

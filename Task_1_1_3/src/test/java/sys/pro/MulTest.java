@@ -29,12 +29,12 @@ public class MulTest {
     @Test
     void testEquals() {
         Expression e1 = new Mul(new Number(2), new Variable("x"));
-        Expression e2 = new Mul(new Number(2), new Variable("x"));
-        Expression e3 = new Mul(new Number(3), new Variable("x"));
-        Expression e4 = new Mul(new Variable("x"), new Number(2));
-        assertEquals(e1, e2);
-        assertNotEquals(e1, e3);
         assertNotEquals(e1, null);
+        Expression e2 = new Mul(new Number(2), new Variable("x"));
+        assertEquals(e1, e2);
+        Expression e3 = new Mul(new Number(3), new Variable("x"));
+        assertNotEquals(e1, e3);
+        Expression e4 = new Mul(new Variable("x"), new Number(2));
         assertNotEquals(e1, e4);
     }
 

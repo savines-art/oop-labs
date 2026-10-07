@@ -29,12 +29,12 @@ public class AddTest {
     @Test
     void testEquals() {
         Expression e1 = new Add(new Number(1), new Variable("x"));
-        Expression e2 = new Add(new Number(1), new Variable("x"));
-        Expression e3 = new Add(new Number(2), new Variable("x"));
-        Expression e4 = new Add(new Variable("x"), new Number(1));
-        assertEquals(e1, e2);
-        assertNotEquals(e1, e3);
         assertNotEquals(e1, null);
+        Expression e2 = new Add(new Number(1), new Variable("x"));
+        assertEquals(e1, e2);
+        Expression e3 = new Add(new Number(2), new Variable("x"));
+        assertNotEquals(e1, e3);
+        Expression e4 = new Add(new Variable("x"), new Number(1));
         assertNotEquals(e1, e4);
     }
 
