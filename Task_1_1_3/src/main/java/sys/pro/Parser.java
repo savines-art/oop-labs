@@ -1,24 +1,45 @@
 package sys.pro;
 
+/**
+ * Recursive-descent parser for symbolic arithmetic expressions.
+ * Supports integer constants, variables, parentheses, and the binary
+ * operators.
+ */
 public class Parser {
-    public final String[] source;
-    private final int sourceSize;
-    private int current = 0;
+    private static String[] tokens;
+    private static int sourceSize;
+    private static int current = 0;
 
-    Parser(String source) {
-        this.source = source.replace("(", "( ").replace(")", " )").split(" ");
-        this.sourceSize = this.source.length;
+    /**
+     * Parses a source string into an expression.
+     *
+     * @param source the expression string
+     * @return the parsed expression
+     */
+    public static Expression parse(String source) {
+        tokens = source.replace("(", "( ").replace(")", " )").trim().split(" +");
+        sourceSize = tokens.length;
+        Expression ret = expression();
+        current = 0;
+        return ret;
     }
 
-    public Expression parse() {
-        return expression();
-    }
-
-    private Expression expression() {
+    /**
+     * Following methods build a formal grammar to parse ast.
+     * Parses an expression (top-level rule, delegates to {@link #term()}).
+     *
+     * @return the parsed expression
+     */
+    private static Expression expression() {
         return term();
     }
 
-    private Expression term() {
+    /**
+     * Parses a term, handling addition and subtraction.
+     *
+     * @return the parsed term
+     */
+    private static Expression term() {
         Expression expr = factor();
         while(match("+", "-")) {
             String operator = previous();
@@ -33,7 +54,12 @@ public class Parser {
         return expr;
     }
 
-    private Expression factor() {
+    /**
+     * Parses a factor, handling multiplication and division.
+     *
+     * @return the parsed factor
+     */
+    private static Expression factor() {
         Expression expr = primary();
 
         while(match("/", "*")) {
@@ -49,7 +75,12 @@ public class Parser {
         return expr;
     }
 
-    private Expression primary() {
+    /**
+     * Parses a primary expression: number, variable, or parenthesized expression.
+     *
+     * @return the parsed primary expression
+     */
+    private static Expression primary() {
         if (match("(")) {
             Expression expr = expression();
             advance();
@@ -64,7 +95,13 @@ public class Parser {
         return new Variable(advance());
     }
 
-    private boolean match(String... tokens) {
+    /**
+     * Tries to match and consume one of the given tokens.
+     *
+     * @param tokens the tokens to match
+     * @return {@code true} if one token matched and was consumed
+     */
+    private static boolean match(String... tokens) {
         for (String token : tokens) {
             if (check(token)) {
                 advance();
@@ -75,26 +112,52 @@ public class Parser {
         return false;
     }
 
-    private boolean check(String token) {
+    /**
+     * Checks whether the current token equals the given token.
+     *
+     * @param token the token to check
+     * @return {@code true} if the current token matches
+     */
+    private static boolean check(String token) {
         return !isAtEnd() && peek().equals(token);
     }
 
-    private String advance() {
+    /**
+     * Advances to the next token and returns the previous token.
+     *
+     * @return the previous token
+     */
+    private static String advance() {
         if (!isAtEnd()) {
             current++;
         }
         return previous();
     }
 
-    private boolean isAtEnd() {
-        return this.current >= this.sourceSize;
+    /**
+     * Checks whether the parser has reached the end of the token stream.
+     *
+     * @return {@code true} if no more tokens are available
+     */
+    private static boolean isAtEnd() {
+        return current >= sourceSize;
     }
 
-    private String peek() {
-        return this.source[current];
+    /**
+     * Returns the current token without consuming it.
+     *
+     * @return the current token
+     */
+    private static String peek() {
+        return tokens[current];
     }
 
-    private  String previous() {
-        return this.source[current - 1];
+    /**
+     * Returns the most recently consumed token.
+     *
+     * @return the previous token
+     */
+    private static String previous() {
+        return tokens[current - 1];
     }
 }
