@@ -48,7 +48,7 @@ public class Variable extends Expression {
      *
      * @return never returns normally
      * @throws IllegalArgumentException always,
-     * because a variable cannot be evaluated without bindings
+     *     because a variable cannot be evaluated without bindings
      */
     @Override
     protected int eval() {
