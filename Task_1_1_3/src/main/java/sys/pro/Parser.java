@@ -45,9 +45,19 @@ public class Parser {
             String operator = previous();
             Expression right = factor();
             switch (operator) {
-                case "+": expr = new Add(expr, right); break;
+                case "+": {
+                    expr = new Add(expr, right);
+                    break;
+                }
 
-                case "-": expr = new Sub(expr, right); break;
+                case "-": {
+                    expr = new Sub(expr, right);
+                    break;
+                }
+
+                default: {
+                    break;
+                }
             }
         }
 
@@ -66,9 +76,19 @@ public class Parser {
             String operator = previous();
             Expression right = primary();
             switch (operator) {
-                case "/": expr = new Div(expr, right); break;
+                case "/": {
+                    expr = new Div(expr, right);
+                    break;
+                }
 
-                case "*": expr = new Mul(expr, right); break;
+                case "*": {
+                    expr = new Mul(expr, right);
+                    break;
+                }
+
+                default: {
+                    break;
+                }
             }
         }
 

@@ -65,7 +65,8 @@ public class Mul extends BinaryExpr {
         if (obj == null) {
             return false;
         }
-        return (obj instanceof Mul) && this.left.equals(((Mul) obj).left) && this.right.equals(((Mul) obj).right);
+        return (obj instanceof Mul) && this.left.equals(((Mul) obj).left)
+                && this.right.equals(((Mul) obj).right);
     }
 
     /**
