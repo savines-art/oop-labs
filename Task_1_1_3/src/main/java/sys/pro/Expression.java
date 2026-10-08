@@ -19,7 +19,9 @@ public abstract class Expression {
      * @return the integer result
      * @throws IllegalArgumentException if the expression contains a variable
      */
-    protected abstract int eval();
+    protected int eval() {
+        return this.eval(new HashMap<>());
+    }
 
     /**
      * Evaluates this expression using the given variable bindings.

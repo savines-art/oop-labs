@@ -44,16 +44,6 @@ public class Number extends Expression {
     }
 
     /**
-     * Evaluates this constant.
-     *
-     * @return the constant value
-     */
-    @Override
-    protected int eval() {
-        return this.value;
-    }
-
-    /**
      * Compares this constant with another object for equality.
      *
      * @param obj the object to compare
@@ -65,9 +55,6 @@ public class Number extends Expression {
             return true;
         }
 
-        if (obj == null) {
-            return false;
-        }
         return obj instanceof Number && ((Number) obj).value == this.value;
     }
 

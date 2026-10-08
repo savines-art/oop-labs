@@ -40,17 +40,6 @@ public class Sub extends BinaryExpr {
     }
 
     /**
-     * Evaluates this subtraction without variable bindings.
-     *
-     * @return the difference of the evaluated operands
-     * @throws IllegalArgumentException if a variable is present
-     */
-    @Override
-    protected int eval() {
-        return this.left.eval() - this.right.eval();
-    }
-
-    /**
      * Compares this subtraction with another object for equality.
      *
      * @param obj the object to compare
@@ -62,9 +51,6 @@ public class Sub extends BinaryExpr {
             return true;
         }
 
-        if (obj == null) {
-            return false;
-        }
         return (obj instanceof Sub)
                 && this.left.equals(((Sub) obj).left) && this.right.equals(((Sub) obj).right);
     }
@@ -101,7 +87,7 @@ public class Sub extends BinaryExpr {
         try {
             newLeft = simpleLeft.eval();
             newRight = simpleRight.eval();
-        } catch (RuntimeException gotVariable) {
+        } catch (IllegalArgumentException gotVariable) {
             hasVariables = true;
         }
 

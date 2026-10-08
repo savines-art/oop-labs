@@ -41,18 +41,6 @@ public class Div extends BinaryExpr {
     }
 
     /**
-     * Evaluates this division without variable bindings.
-     *
-     * @return the quotient of the evaluated operands
-     * @throws IllegalArgumentException if a variable is present
-     * @throws ArithmeticException if the divisor evaluates to zero
-     */
-    @Override
-    protected int eval() {
-        return this.left.eval() / this.right.eval();
-    }
-
-    /**
      * Compares this division with another object for equality.
      *
      * @param obj the object to compare
@@ -62,10 +50,6 @@ public class Div extends BinaryExpr {
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
-        }
-
-        if (obj == null) {
-            return false;
         }
         return (obj instanceof Div) && this.left.equals(((Div) obj).left)
                 && this.right.equals(((Div) obj).right);
@@ -101,7 +85,7 @@ public class Div extends BinaryExpr {
         try {
             newLeft = simpleLeft.eval();
 
-        } catch (RuntimeException gotVariable) {
+        } catch (IllegalArgumentException gotVariable) {
             hasVariables = true;
         }
 
@@ -110,7 +94,7 @@ public class Div extends BinaryExpr {
             if (newRight == 1) {
                 return simpleLeft;
             }
-        } catch (RuntimeException gotVariable) {
+        } catch (IllegalArgumentException gotVariable) {
             hasVariables = true;
         }
 

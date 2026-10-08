@@ -40,17 +40,6 @@ public class Add extends BinaryExpr {
     }
 
     /**
-     * Evaluates this addition without variable bindings.
-     *
-     * @return the sum of the evaluated operands
-     * @throws IllegalArgumentException if a variable is present
-     */
-    @Override
-    protected int eval() {
-        return this.left.eval() + this.right.eval();
-    }
-
-    /**
      * Compares this addition with another object for equality.
      *
      * @param obj the object to compare
@@ -60,10 +49,6 @@ public class Add extends BinaryExpr {
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
-        }
-
-        if (obj == null) {
-            return false;
         }
 
         return (obj instanceof Add) && this.left.equals(((Add) obj).left)
@@ -100,7 +85,7 @@ public class Add extends BinaryExpr {
             if (newLeft == 0) {
                 return simpleRight;
             }
-        } catch (RuntimeException gotVariable) {
+        } catch (IllegalArgumentException gotVariable) {
             hasVariables = true;
         }
 
@@ -109,7 +94,7 @@ public class Add extends BinaryExpr {
             if (newRight == 0) {
                 return simpleLeft;
             }
-        } catch (RuntimeException gotVariable) {
+        } catch (IllegalArgumentException gotVariable) {
             hasVariables = true;
         }
 

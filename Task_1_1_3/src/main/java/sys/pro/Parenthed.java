@@ -40,17 +40,6 @@ public class Parenthed extends Expression {
     }
 
     /**
-     * Evaluates the inner expression without variable bindings.
-     *
-     * @return the result of evaluating the inner expression
-     * @throws IllegalArgumentException if a variable is present
-     */
-    @Override
-    protected int eval() {
-        return this.inner.eval();
-    }
-
-    /**
      * Compares this parenthesized expression with another object for equality.
      *
      * @param obj the object to compare
@@ -62,9 +51,6 @@ public class Parenthed extends Expression {
             return true;
         }
 
-        if (obj == null) {
-            return false;
-        }
         return obj instanceof Parenthed && this.inner.equals(((Parenthed) obj).inner);
     }
 

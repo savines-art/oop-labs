@@ -38,22 +38,10 @@ public class Variable extends Expression {
     protected int eval(HashMap<String, Integer> variables) {
         if (variables.get(this.name) == null) {
             throw new IllegalArgumentException(
-                    "Can't evaluate a variable without defining variables.");
+                    "Can't evaluate a variable without defining variable: "
+                            + this.name + ".");
         }
         return variables.get(this.name);
-    }
-
-    /**
-     * Evaluates this variable without bindings.
-     *
-     * @return never returns normally
-     * @throws IllegalArgumentException always,
-     *     because a variable cannot be evaluated without bindings
-     */
-    @Override
-    protected int eval() {
-        throw new IllegalArgumentException(
-                "Can't evaluate a variable without defining variables.");
     }
 
     /**
@@ -66,10 +54,6 @@ public class Variable extends Expression {
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
-        }
-
-        if (obj == null) {
-            return false;
         }
         return obj instanceof Variable
                 && ((Variable) obj).name.equals(this.name);

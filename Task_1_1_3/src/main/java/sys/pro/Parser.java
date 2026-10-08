@@ -24,13 +24,13 @@ public class Parser {
         if (source.isBlank()) {
             return null;
         }
-        tokens = source.replace("(",
-                "( ").replace(")",
-                " )").replace("+",
-                " + ").replace("-",
-                " - ").replace("*",
-                " * ").replace("/",
-                " / ").trim().split("\\s+");
+        tokens = source.replace("(", "( ")
+                .replace(")", " )")
+                .replace("+", " + ")
+                .replace("-", " - ")
+                .replace("*", " * ")
+                .replace("/", " / ")
+                .trim().split("\\s+");
         tokens = Arrays.stream(tokens)
                 .filter(s -> s != null && !s.isEmpty()).toArray(String[]::new);
         sourceSize = tokens.length;

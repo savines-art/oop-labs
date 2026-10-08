@@ -40,17 +40,6 @@ public class Mul extends BinaryExpr {
     }
 
     /**
-     * Evaluates this multiplication without variable bindings.
-     *
-     * @return the product of the evaluated operands
-     * @throws IllegalArgumentException if a variable is present
-     */
-    @Override
-    protected int eval() {
-        return this.left.eval() * this.right.eval();
-    }
-
-    /**
      * Compares this multiplication with another object for equality.
      *
      * @param obj the object to compare
@@ -62,9 +51,6 @@ public class Mul extends BinaryExpr {
             return true;
         }
 
-        if (obj == null) {
-            return false;
-        }
         return (obj instanceof Mul) && this.left.equals(((Mul) obj).left)
                 && this.right.equals(((Mul) obj).right);
     }
@@ -102,7 +88,7 @@ public class Mul extends BinaryExpr {
             } else if (newLeft == 1) {
                 return simpleRight;
             }
-        } catch (RuntimeException gotVariable) {
+        } catch (IllegalArgumentException gotVariable) {
             hasVariables = true;
         }
 
@@ -113,7 +99,7 @@ public class Mul extends BinaryExpr {
             } else if (newRight == 1) {
                 return simpleLeft;
             }
-        } catch (RuntimeException gotVariable) {
+        } catch (IllegalArgumentException gotVariable) {
             hasVariables = true;
         }
 
