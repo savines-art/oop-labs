@@ -11,7 +11,7 @@ import java.util.List;
 public class GraphInc implements Graph {
     public ArrayList<GraphNode> nodes;
     public ArrayList<GraphEdge> edges;
-    public ArrayList<ArrayList<Boolean>> incidency;
+    public ArrayList<ArrayList<Integer>> incidency;
 
     GraphInc() {
         this.nodes = new ArrayList<>();
@@ -49,8 +49,21 @@ public class GraphInc implements Graph {
         int index1 = this.nodes.indexOf(node1);
         int index2 = this.nodes.indexOf(node2);
         for (int i = 0; i < this.incidency.size(); i++) {
-            boolean res = (i == index1) || (i == index2);
-            this.incidency.get(i).add(res);
+            if (i == index1 || i == index2) {
+                if (index1 == index2) {
+                    this.incidency.get(i).add(2);
+                } else {
+                    if (i == index1) {
+                        this.incidency.get(i).add(-1);
+                    } else {
+                        this.incidency.get(i).add(1);
+                    }
+                }
+
+            } else {
+                this.incidency.get(i).add(0);
+            }
+
         }
     }
 
@@ -69,8 +82,6 @@ public class GraphInc implements Graph {
         ArrayList<GraphNode> ret = new ArrayList<>();
         for (GraphEdge edge : this.edges) {
             if (edge.from.equals(node)) {
-                ret.add(edge.from);
-            } else if (edge.to.equals(node)) {
                 ret.add(edge.to);
             }
         }
@@ -108,6 +119,16 @@ public class GraphInc implements Graph {
         } catch (IOException err) {
             System.out.println("Caught error in input file.");
         }
+    }
+
+    @Override
+    public int size() {
+        return this.nodes.size();
+    }
+
+    @Override
+    public ArrayList<GraphNode> nodes() {
+        return this.nodes;
     }
 
     @Override

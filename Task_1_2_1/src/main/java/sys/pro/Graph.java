@@ -11,4 +11,6 @@ public interface Graph {
     public abstract ArrayList<GraphNode> getNeighbors(GraphNode node);
     public abstract void clear();
     public abstract void getGraph(String filename) throws InvalidPathException;
+    public abstract int size();
+    public abstract ArrayList<GraphNode> nodes();
 }

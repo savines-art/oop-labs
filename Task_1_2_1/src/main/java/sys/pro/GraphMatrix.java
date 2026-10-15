@@ -111,6 +111,16 @@ public class GraphMatrix implements Graph {
     }
 
     @Override
+    public int size() {
+        return this.nodes.size();
+    }
+
+    @Override
+    public ArrayList<GraphNode> nodes() {
+        return this.nodes;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;

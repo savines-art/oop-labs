@@ -104,6 +104,16 @@ public class GraphList implements Graph {
     }
 
     @Override
+    public int size() {
+        return this.nodes.size();
+    }
+
+    @Override
+    public ArrayList<GraphNode> nodes() {
+        return new ArrayList<>(this.nodes.keySet());
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
