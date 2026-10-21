@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GraphMatrix implements Graph {
+public class GraphMatrix extends Graph {
     public ArrayList<GraphNode> nodes;
     private ArrayList<ArrayList<Boolean>> matrix;
 
@@ -19,18 +19,28 @@ public class GraphMatrix implements Graph {
 
     @Override
     public void addNode(GraphNode node) {
-        if (!this.nodes.contains(node)) {
-            this.nodes.add(node);
+        if (this.nodes.contains(node)) {
+            return;
         }
-        for (int i = 0; i < this.matrix.size(); i++) {
-            this.matrix.get(i).add(false);
+
+        this.nodes.add(node);
+        int n = this.nodes.size();
+        for (ArrayList<Boolean> row : this.matrix) {
+            row.add(false);
         }
-        this.matrix.add(new ArrayList<>(this.nodes.size()));
+        ArrayList<Boolean> newRow = new ArrayList<>(n);
+        for (int i = 0; i < n; i++) newRow.add(false);
+        this.matrix.add(newRow);
     }
 
     @Override
     public void removeNode(GraphNode node) {
         int index = this.nodes.indexOf(node);
+
+        if (index == -1) {
+            return;
+        }
+
         this.nodes.remove(index);
         this.matrix.remove(index);
         for (ArrayList<Boolean> m : this.matrix) {
@@ -64,7 +74,7 @@ public class GraphMatrix implements Graph {
     public ArrayList<GraphNode> getNeighbors(GraphNode node) {
         int index = this.nodes.indexOf(node);
         if (index == -1) {
-            return null;
+            return new ArrayList<>();
         }
 
         ArrayList<GraphNode> ret = new ArrayList<>();
@@ -85,110 +95,7 @@ public class GraphMatrix implements Graph {
     }
 
     @Override
-    public void getGraph(String filename) throws InvalidPathException {
-        Path path = Path.of(filename);
-
-        try {
-            List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
-            clear();
-            int number = Integer.parseInt(lines.getFirst().strip());
-            for (String s : lines.get(1).split("\\s+")) {
-                int value = Integer.parseInt(s.strip());
-                GraphNode node = new GraphNode(value);
-                addNode(node);
-            }
-
-            for (int i = 2; i < number; i++) {
-                String[] l = lines.get(i).split("\\s+");
-                GraphNode node = new GraphNode(Integer.parseInt(l[0]));
-                for (int j = 1; j < l.length; j++) {
-                    addEdge(node, new GraphNode(Integer.parseInt(l[j])));
-                }
-            }
-        } catch (IOException err) {
-            System.out.println("Caught error in input file.");
-        }
-    }
-
-    @Override
-    public int size() {
-        return this.nodes.size();
-    }
-
-    @Override
     public ArrayList<GraphNode> nodes() {
         return this.nodes;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-
-        if (!(obj instanceof Graph)) {
-            return false;
-        }
-
-        if (obj instanceof GraphList) {
-            if (!this.nodes.containsAll(((GraphList)obj).nodes.keySet())
-                    || !((GraphList)obj).nodes.keySet().containsAll(this.nodes)) {
-                return false;
-            }
-
-            for (GraphNode n : this.nodes) {
-                for (GraphNode k : ((GraphList)obj).nodes.keySet()) {
-                    if (!k.equals(n)) {
-                        continue;
-                    }
-                    ArrayList<GraphNode> neighbors1 = getNeighbors(n);
-                    ArrayList<GraphNode> neighbors2 = ((GraphList)obj).getNeighbors(k);
-                    if (!neighbors1.containsAll(neighbors2)
-                            || !neighbors2.containsAll(neighbors1)) {
-                        return false;
-                    }
-                }
-            }
-        } else if (obj instanceof GraphMatrix) {
-            if (!this.nodes.containsAll(((GraphMatrix)obj).nodes) ||
-                    !((GraphMatrix)obj).nodes.containsAll(this.nodes)) {
-                return false;
-            }
-
-            for (GraphNode n : this.nodes) {
-                for (GraphNode k : ((GraphMatrix)obj).nodes) {
-                    if (!k.equals(n)) {
-                        continue;
-                    }
-                    ArrayList<GraphNode> neighbors1 = getNeighbors(n);
-                    ArrayList<GraphNode> neighbors2 = ((GraphMatrix)obj).getNeighbors(k);
-                    if (!neighbors1.containsAll(neighbors2)
-                            || !neighbors2.containsAll(neighbors1)) {
-                        return false;
-                    }
-                }
-            }
-        } else if (obj instanceof GraphInc) {
-            if (!this.nodes.containsAll(((GraphInc)obj).nodes) ||
-                    !((GraphInc)obj).nodes.containsAll(this.nodes)) {
-                return false;
-            }
-
-            for (GraphNode n : this.nodes) {
-                for (GraphNode k : ((GraphInc)obj).nodes) {
-                    if (!k.equals(n)) {
-                        continue;
-                    }
-                    ArrayList<GraphNode> neighbors1 = getNeighbors(n);
-                    ArrayList<GraphNode> neighbors2 = ((GraphInc)obj).getNeighbors(k);
-                    if (!neighbors1.containsAll(neighbors2)
-                            || !neighbors2.containsAll(neighbors1)) {
-                        return false;
-                    }
-                }
-            }
-        }
-
-        return true;
     }
 }
