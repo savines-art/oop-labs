@@ -92,6 +92,10 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">GraphMatrix</span>
 <span class="extends-implements">extends <a href="AbstractGraph.html" title="class in sys.pro">AbstractGraph</a></span></div>
+<div class="block">Graph implementation: Adjacency matrix.
+<p>
+<code>matrix.get(i).get(j)</code> is <code>true</code> if there is an edge
+from <code>nodes.get(i)</code> to <code>nodes.get(j)</code>.</div>
 </div>
 </section>
 <section class="summary">
@@ -107,7 +111,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a><wbr>&lt;<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&gt;</code></div>
 <div class="col-second even-row-color"><code><a href="#nodes" class="member-name-link">nodes</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">List of nodes stored in this adjacency-matrix graph.</div>
+</div>
 </div>
 </section>
 </li>
@@ -173,6 +179,9 @@ loadScripts(document, 'script');</script>
 <h3>nodes</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&gt;</span>&nbsp;<span class="element-name">nodes</span></div>
+<div class="block">List of nodes stored in this adjacency-matrix graph.
+The index of a node in this list corresponds to its row and column
+index in <code>matrix</code>.</div>
 </div>
 </section>
 </li>
