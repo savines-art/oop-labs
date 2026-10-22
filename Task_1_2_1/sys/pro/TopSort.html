@@ -80,6 +80,12 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">TopSort</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Provides topological sorting for directed graphs.
+The sorting is performed using depth-first search and produces an ordering
+of nodes such that for every directed edge from <code>u</code> to <code>v</code>,
+<code>u</code> appears before <code>v</code> in the resulting list.
+If the graph contains a cycle, topological sorting is impossible and
+an <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link"><code>IllegalStateException</code></a> is thrown.</div>
 </div>
 </section>
 <section class="summary">
@@ -110,7 +116,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#sort(sys.pro.Graph)" class="member-name-link">sort</a><wbr>(<a href="Graph.html" title="interface in sys.pro">Graph</a>&nbsp;graph)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns a topological ordering of the nodes in the specified graph.</div>
+</div>
 </div>
 </div>
 </div>
@@ -149,6 +157,18 @@ loadScripts(document, 'script');</script>
 <h3>sort</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&gt;</span>&nbsp;<span class="element-name">sort</span><wbr><span class="parameters">(<a href="Graph.html" title="interface in sys.pro">Graph</a>&nbsp;graph)</span></div>
+<div class="block">Returns a topological ordering of the nodes in the specified graph.
+The returned list contains all nodes of the graph ordered so that for every
+directed edge from <code>u</code> to <code>v</code>, <code>u</code> precedes <code>v</code>.
+If the graph is empty, an empty list is returned.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>graph</code> - the graph to sort</dd>
+<dt>Returns:</dt>
+<dd>a list of graph nodes in topological order</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></code> - if the graph contains a cycle</dd>
+</dl>
 </div>
 </section>
 </li>

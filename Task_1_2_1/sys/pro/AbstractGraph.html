@@ -91,6 +91,15 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">AbstractGraph</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="Graph.html" title="interface in sys.pro">Graph</a></span></div>
+<div class="block">Skeletal implementation of the <a href="Graph.html" title="interface in sys.pro"><code>Graph</code></a> interface.
+
+<p>
+This class provides common behavior shared by all graph implementations:
+a textual representation of the graph, content-based equality between
+graphs, and a default <a href="#size()"><code>size()</code></a> implementation based on <a href="Graph.html#nodes()"><code>Graph.nodes()</code></a>.
+Concrete subclasses are expected to provide the underlying storage
+(for example, an adjacency list, adjacency matrix, or incidence matrix)
+and implement the remaining <a href="Graph.html" title="interface in sys.pro"><code>Graph</code></a> operations.</div>
 </div>
 </section>
 <section class="summary">
@@ -121,7 +130,9 @@ implements <a href="Graph.html" title="interface in sys.pro">Graph</a></span></d
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Compares this graph with another object for equality.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#size()" class="member-name-link">size</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -174,6 +185,7 @@ implements <a href="Graph.html" title="interface in sys.pro">Graph</a></span></d
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">toString</span>()</div>
 <div class="block">Returns a string representation of this graph.
+
 <p>
 For each node, the output contains the node followed by an arrow and
 a comma-separated list of its neighbors.</div>
@@ -191,9 +203,20 @@ a comma-separated list of its neighbors.</div>
 <h3>equals</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</span></div>
+<div class="block">Compares this graph with another object for equality.
+The object is considered equal if it is itself a <a href="Graph.html" title="interface in sys.pro"><code>Graph</code></a> and
+satisfies the graph-equality contract described in
+<code>equals(Graph, Graph)</code>. This method is consistent with the
+general contract of <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link"><code>Object.equals(Object)</code></a>: it is reflexive,
+symmetric, and transitive, and it returns <code>false</code> for <code>null</code>.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>obj</code> - the object to compare with</dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if the specified object is a graph equal to this one;
+        <code>false</code> otherwise</dd>
 </dl>
 </div>
 </section>
