@@ -1,16 +1,9 @@
 package sys.pro;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
-import java.nio.file.NoSuchFileException;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-public class GraphList extends Graph {
+public class GraphList extends AbstractGraph {
     public HashMap<GraphNode, ArrayList<GraphNode>> nodes;
 
     GraphList() {
@@ -56,7 +49,7 @@ public class GraphList extends Graph {
         if (ret == null) {
             return new ArrayList<>();
         }
-        return ret;
+        return new ArrayList<>(ret);
     }
 
     @Override
@@ -64,11 +57,8 @@ public class GraphList extends Graph {
         this.nodes.clear();
     }
 
-    //todo: make static method
-
     @Override
     public ArrayList<GraphNode> nodes() {
         return new ArrayList<>(this.nodes.keySet());
     }
-    //todo: make static or default
 }

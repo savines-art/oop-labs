@@ -1,16 +1,14 @@
 package sys.pro;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.List;
 
-public class GraphInc extends Graph {
+public class GraphInc extends AbstractGraph {
     public ArrayList<GraphNode> nodes;
     public ArrayList<ArrayList<Integer>> incidency;
+    private static final int BEGIN = -1;
+    private static final int END = 1;
+    private static final int SELF = 2;
+    private static final int NOTHING = 0;
 
     GraphInc() {
         this.nodes = new ArrayList<>();
@@ -24,7 +22,9 @@ public class GraphInc extends Graph {
             int s = this.incidency.isEmpty() ? 0 : this.incidency.getFirst().size();
 
             ArrayList<Integer> row = new ArrayList<>(s);
-            for (int i = 0; i < s; i++) row.add(0);
+            for (int i = 0; i < s; i++) {
+                row.add(NOTHING);
+            }
 
             this.nodes.add(node);
             this.incidency.add(row);
@@ -40,15 +40,16 @@ public class GraphInc extends Graph {
 
         ArrayList<Integer> row = this.incidency.get(index);
         for (int col = row.size() - 1; col >= 0; col--) {
-            if (row.get(col) != 0) {
-                for (ArrayList<Integer> r : this.incidency) r.remove(col);
+            if (row.get(col) != NOTHING) {
+                for (ArrayList<Integer> r : this.incidency) {
+                    r.remove(col);
+                }
             }
         }
         this.incidency.remove(index);
         this.nodes.remove(index);
     }
 
-    //todo: make enum or static fields
     @Override
     public void addEdge(GraphNode node1, GraphNode node2) {
         addNode(node1);
@@ -63,23 +64,35 @@ public class GraphInc extends Graph {
         for (int i = 0; i < this.incidency.size(); i++) {
             if (i == index1 || i == index2) {
                 if (index1 == index2) {
-                    this.incidency.get(i).add(2);
+                    this.incidency.get(i).add(SELF);
                 } else {
                     if (i == index1) {
-                        this.incidency.get(i).add(-1);
+                        this.incidency.get(i).add(BEGIN);
                     } else {
-                        this.incidency.get(i).add(1);
+                        this.incidency.get(i).add(END);
                     }
                 }
 
             } else {
-                this.incidency.get(i).add(0);
+                this.incidency.get(i).add(NOTHING);
             }
 
         }
     }
 
-    public int findColumn(int nodeIndex1, int nodeIndex2) {
+    /**
+     * Finds the incidence-matrix column that represents the directed edge
+     * from the first specified node to the second specified node.
+     * <p>
+     * If both indexes refer to the same node, this method searches for a
+     * self-loop column.
+     *
+     * @param nodeIndex1 the index of the source node
+     * @param nodeIndex2 the index of the target node
+     * @return the column index representing the edge, or {@code -1} if no such
+     *         edge exists or if either node index is invalid
+     */
+    private int findColumn(int nodeIndex1, int nodeIndex2) {
         if (nodeIndex1 == -1 || nodeIndex2 == -1) return -1;
 
         ArrayList<Integer> raw1 = this.incidency.get(nodeIndex1);
@@ -88,7 +101,7 @@ public class GraphInc extends Graph {
         int s = raw1.size();
 
         for (int i = 0; i < s; i++) {
-            if ((raw1.get(i) == -1 && raw2.get(i) == 1) || (nodeIndex1 == nodeIndex2 && raw1.get(i) == 2)) {
+            if ((raw1.get(i) == BEGIN && raw2.get(i) == END) || (nodeIndex1 == nodeIndex2 && raw1.get(i) == SELF)) {
                 return i;
             }
         }
@@ -111,7 +124,7 @@ public class GraphInc extends Graph {
             return;
         }
 
-        for (int i = 0; i < this.nodes.size(); i++) {
+        for (int i = 0; i < this.size(); i++) {
             this.incidency.get(i).remove(index);
         }
     }
@@ -128,11 +141,11 @@ public class GraphInc extends Graph {
         ArrayList<Integer> row = this.incidency.get(index);
         for (int col = 0; col < row.size(); col++) {
             int v = row.get(col);
-            if (v == 2) {
+            if (v == SELF) {
                 ret.add(node);
-            } else if (v == -1) {
+            } else if (v == BEGIN) {
                 for (int r = 0; r < this.nodes.size(); r++) {
-                    if (this.incidency.get(r).get(col) == 1) {
+                    if (this.incidency.get(r).get(col) == END) {
                         ret.add(this.nodes.get(r));
                         break;
                     }

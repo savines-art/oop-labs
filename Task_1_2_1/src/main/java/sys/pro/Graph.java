@@ -1,50 +1,47 @@
 package sys.pro;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
 
-public abstract class Graph implements AbstractGraph {
-    @Override
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        for (GraphNode k : this.nodes()) {
-            StringBuilder raw = new StringBuilder();
-            raw.append(k.toString());
-            raw.append(" -> ");
-            for (GraphNode node : this.getNeighbors(k)) {
-                raw.append(node.toString());
-                raw.append(", ");
+public interface Graph {
+    //todo: for tests: make hierarchy
+
+    void addNode(GraphNode node);
+    void removeNode(GraphNode node);
+    void addEdge(GraphNode node1, GraphNode node2);
+    void removeEdge(GraphNode node1, GraphNode node2);
+    ArrayList<GraphNode> getNeighbors(GraphNode node);
+    void clear();
+
+    default void crateGraphFromFile(String filename) throws InvalidPathException {
+        Path path = Path.of(filename);
+
+        try {
+            List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+            clear();
+            int number = Integer.parseInt(lines.getFirst().strip());
+            for (String s : lines.get(1).strip().split("\\s+")) {
+                int value = Integer.parseInt(s.strip());
+                GraphNode node = new GraphNode(value);
+                addNode(node);
             }
-            raw.append("\n");
-            ret.append(raw);
-        }
-        return ret.toString();
-    }
 
-    public static boolean equals(Graph graph1, Graph graph2) {
-        if (!graph1.nodes().containsAll(graph2.nodes())
-                || !graph2.nodes().containsAll(graph1.nodes())) {
-            return false;
-        }
-
-        for (GraphNode node : graph1.nodes()) {
-            for (GraphNode k : graph2.nodes()) {
-                if (!k.equals(node)) {
-                    continue;
-                }
-                ArrayList<GraphNode> neighbors1 = graph1.getNeighbors(node);
-                ArrayList<GraphNode> neighbors2 = graph2.getNeighbors(k);
-                if (!neighbors1.containsAll(neighbors2)
-                        || !neighbors2.containsAll(neighbors1)) {
-                    return false;
+            for (int i = 2; i < number; i++) {
+                String[] l = lines.get(i).strip().split("\\s+");
+                GraphNode node = new GraphNode(Integer.parseInt(l[0]));
+                for (int j = 1; j < l.length; j++) {
+                    addEdge(node, new GraphNode(Integer.parseInt(l[j])));
                 }
             }
+        } catch (IOException err) {
+            System.out.println("Caught error in input file.");
         }
-
-        return true;
     }
-
-    @Override
-    public int size() {
-        return this.nodes().size();
-    }
+    int size();
+    ArrayList<GraphNode> nodes();
 }

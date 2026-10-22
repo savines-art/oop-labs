@@ -1,14 +1,8 @@
 package sys.pro;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.List;
 
-public class GraphMatrix extends Graph {
+public class GraphMatrix extends AbstractGraph {
     public ArrayList<GraphNode> nodes;
     private ArrayList<ArrayList<Boolean>> matrix;
 
@@ -29,7 +23,9 @@ public class GraphMatrix extends Graph {
             row.add(false);
         }
         ArrayList<Boolean> newRow = new ArrayList<>(n);
-        for (int i = 0; i < n; i++) newRow.add(false);
+        for (int i = 0; i < n; i++) {
+            newRow.add(false);
+        };
         this.matrix.add(newRow);
     }
 
