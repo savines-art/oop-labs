@@ -5,7 +5,7 @@
 <title>Graph (Task_1_2_1 1.0-SNAPSHOT API)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="description" content="declaration: package: sys.pro, class: Graph">
+<meta name="description" content="declaration: package: sys.pro, interface: Graph">
 <meta name="generator" content="javadoc/ClassWriter">
 <link rel="stylesheet" type="text/css" href="../../resource-files/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="../../resource-files/stylesheet.css">
@@ -53,18 +53,18 @@ loadScripts(document, 'script');</script>
 <div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
 <ol class="toc-list" tabindex="-1">
 <li><a href="#" tabindex="0">Description</a></li>
-<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
 <li><a href="#method-summary" tabindex="0">Method Summary</a></li>
-<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
-<ol class="toc-list">
-<li><a href="#%3Cinit%3E()" tabindex="0">Graph()</a></li>
-</ol>
-</li>
 <li><a href="#method-detail" tabindex="0">Method Details</a>
 <ol class="toc-list">
-<li><a href="#toString()" tabindex="0">toString()</a></li>
-<li><a href="#equals(sys.pro.Graph,sys.pro.Graph)" tabindex="0">equals(Graph, Graph)</a></li>
+<li><a href="#addNode(sys.pro.GraphNode)" tabindex="0">addNode(GraphNode)</a></li>
+<li><a href="#removeNode(sys.pro.GraphNode)" tabindex="0">removeNode(GraphNode)</a></li>
+<li><a href="#addEdge(sys.pro.GraphNode,sys.pro.GraphNode)" tabindex="0">addEdge(GraphNode, GraphNode)</a></li>
+<li><a href="#removeEdge(sys.pro.GraphNode,sys.pro.GraphNode)" tabindex="0">removeEdge(GraphNode, GraphNode)</a></li>
+<li><a href="#getNeighbors(sys.pro.GraphNode)" tabindex="0">getNeighbors(GraphNode)</a></li>
+<li><a href="#clear()" tabindex="0">clear()</a></li>
+<li><a href="#crateGraphFromFile(java.lang.String)" tabindex="0">crateGraphFromFile(String)</a></li>
 <li><a href="#size()" tabindex="0">size()</a></li>
+<li><a href="#nodes()" tabindex="0">nodes()</a></li>
 </ol>
 </li>
 </ol>
@@ -72,117 +72,134 @@ loadScripts(document, 'script');</script>
 <main role="main">
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<h1 title="Class Graph" class="title">Class Graph</h1>
-</div>
-<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">sys.pro.Graph</div>
+<h1 title="Interface Graph" class="title">Interface Graph</h1>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
-<dt>All Implemented Interfaces:</dt>
-<dd><code><a href="AbstractGraph.html" title="interface in sys.pro">AbstractGraph</a></code></dd>
-</dl>
-<dl class="notes">
-<dt>Direct Known Subclasses:</dt>
-<dd><code><a href="GraphInc.html" title="class in sys.pro">GraphInc</a>, <a href="GraphList.html" title="class in sys.pro">GraphList</a>, <a href="GraphMatrix.html" title="class in sys.pro">GraphMatrix</a></code></dd>
+<dt>All Known Implementing Classes:</dt>
+<dd><code><a href="AbstractGraph.html" title="class in sys.pro">AbstractGraph</a>, <a href="GraphInc.html" title="class in sys.pro">GraphInc</a>, <a href="GraphList.html" title="class in sys.pro">GraphList</a>, <a href="GraphMatrix.html" title="class in sys.pro">GraphMatrix</a></code></dd>
 </dl>
 <hr>
 <div class="horizontal-scroll">
-<div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">Graph</span>
-<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="AbstractGraph.html" title="interface in sys.pro">AbstractGraph</a></span></div>
+<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">Graph</span></div>
 </div>
 </section>
 <section class="summary">
 <ul class="summary-list">
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<li>
-<section class="constructor-summary" id="constructor-summary">
-<h2>Constructor Summary</h2>
-<div class="caption"><span>Constructors</span></div>
-<div class="summary-table two-column-summary">
-<div class="table-header col-first">Constructor</div>
-<div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">Graph</a>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-</div>
-</section>
-</li>
 <!-- ========== METHOD SUMMARY =========== -->
 <li>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab5" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab5', 3)" class="table-tab">Default Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#equals(sys.pro.Graph,sys.pro.Graph)" class="member-name-link">equals</a><wbr>(<a href="Graph.html" title="class in sys.pro">Graph</a>&nbsp;graph1,
- <a href="Graph.html" title="class in sys.pro">Graph</a>&nbsp;graph2)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#size()" class="member-name-link">size</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#addEdge(sys.pro.GraphNode,sys.pro.GraphNode)" class="member-name-link">addEdge</a><wbr>(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node1,
+ <a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node2)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#addNode(sys.pro.GraphNode)" class="member-name-link">addNode</a><wbr>(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#clear()" class="member-name-link">clear</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#crateGraphFromFile(java.lang.String)" class="member-name-link">crateGraphFromFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;filename)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a><wbr>&lt;<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getNeighbors(sys.pro.GraphNode)" class="member-name-link">getNeighbors</a><wbr>(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a><wbr>&lt;<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#nodes()" class="member-name-link">nodes</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#removeEdge(sys.pro.GraphNode,sys.pro.GraphNode)" class="member-name-link">removeEdge</a><wbr>(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node1,
+ <a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node2)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#removeNode(sys.pro.GraphNode)" class="member-name-link">removeNode</a><wbr>(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#size()" class="member-name-link">size</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 </div>
 </div>
 </div>
-<div class="inherited-list">
-<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
-<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
-<div class="inherited-list">
-<h3 id="methods-inherited-from-class-sys.pro.AbstractGraph">Methods inherited from interface&nbsp;<a href="AbstractGraph.html#method-summary" title="interface in sys.pro">AbstractGraph</a></h3>
-<code><a href="AbstractGraph.html#addEdge(sys.pro.GraphNode,sys.pro.GraphNode)" title="addEdge(GraphNode, GraphNode)">addEdge</a>, <a href="AbstractGraph.html#addNode(sys.pro.GraphNode)" title="addNode(GraphNode)">addNode</a>, <a href="AbstractGraph.html#clear()" title="clear()">clear</a>, <a href="AbstractGraph.html#crateGraphFromFile(java.lang.String)" title="crateGraphFromFile(String)">crateGraphFromFile</a>, <a href="AbstractGraph.html#getNeighbors(sys.pro.GraphNode)" title="getNeighbors(GraphNode)">getNeighbors</a>, <a href="AbstractGraph.html#nodes()" title="nodes()">nodes</a>, <a href="AbstractGraph.html#removeEdge(sys.pro.GraphNode,sys.pro.GraphNode)" title="removeEdge(GraphNode, GraphNode)">removeEdge</a>, <a href="AbstractGraph.html#removeNode(sys.pro.GraphNode)" title="removeNode(GraphNode)">removeNode</a></code></div>
 </section>
 </li>
 </ul>
 </section>
 <section class="details">
 <ul class="details-list">
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<li>
-<section class="constructor-details" id="constructor-detail">
-<h2>Constructor Details</h2>
-<ul class="member-list">
-<li>
-<section class="detail" id="&lt;init&gt;()">
-<h3>Graph</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Graph</span>()</div>
-</div>
-</section>
-</li>
-</ul>
-</section>
-</li>
 <!-- ============ METHOD DETAIL ========== -->
 <li>
 <section class="method-details" id="method-detail">
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="toString()">
-<h3>toString</h3>
+<section class="detail" id="addNode(sys.pro.GraphNode)">
+<h3>addNode</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">toString</span>()</div>
-<dl class="notes">
-<dt>Overrides:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
-</dl>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">addNode</span><wbr><span class="parameters">(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node)</span></div>
 </div>
 </section>
 </li>
 <li>
-<section class="detail" id="equals(sys.pro.Graph,sys.pro.Graph)">
-<h3>equals</h3>
+<section class="detail" id="removeNode(sys.pro.GraphNode)">
+<h3>removeNode</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="Graph.html" title="class in sys.pro">Graph</a>&nbsp;graph1,
- <a href="Graph.html" title="class in sys.pro">Graph</a>&nbsp;graph2)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">removeNode</span><wbr><span class="parameters">(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="addEdge(sys.pro.GraphNode,sys.pro.GraphNode)">
+<h3>addEdge</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">addEdge</span><wbr><span class="parameters">(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node1,
+ <a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node2)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="removeEdge(sys.pro.GraphNode,sys.pro.GraphNode)">
+<h3>removeEdge</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">removeEdge</span><wbr><span class="parameters">(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node1,
+ <a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node2)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getNeighbors(sys.pro.GraphNode)">
+<h3>getNeighbors</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&gt;</span>&nbsp;<span class="element-name">getNeighbors</span><wbr><span class="parameters">(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="clear()">
+<h3>clear</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">clear</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="crateGraphFromFile(java.lang.String)">
+<h3>crateGraphFromFile</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">crateGraphFromFile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;filename)</span>
+                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/InvalidPathException.html" title="class or interface in java.nio.file" class="external-link">InvalidPathException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/InvalidPathException.html" title="class or interface in java.nio.file" class="external-link">InvalidPathException</a></code></dd>
+</dl>
 </div>
 </section>
 </li>
@@ -190,11 +207,15 @@ implements <a href="AbstractGraph.html" title="interface in sys.pro">AbstractGra
 <section class="detail" id="size()">
 <h3>size</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">size</span>()</div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="AbstractGraph.html#size()">size</a></code>&nbsp;in interface&nbsp;<code><a href="AbstractGraph.html" title="interface in sys.pro">AbstractGraph</a></code></dd>
-</dl>
+<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name">size</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="nodes()">
+<h3>nodes</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&gt;</span>&nbsp;<span class="element-name">nodes</span>()</div>
 </div>
 </section>
 </li>
