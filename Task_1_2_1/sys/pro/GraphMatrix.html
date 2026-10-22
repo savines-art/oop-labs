@@ -93,7 +93,6 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">GraphMatrix</span>
 <span class="extends-implements">extends <a href="AbstractGraph.html" title="class in sys.pro">AbstractGraph</a></span></div>
 <div class="block">Graph implementation: Adjacency matrix.
-<p>
 <code>matrix.get(i).get(j)</code> is <code>true</code> if there is an edge
 from <code>nodes.get(i)</code> to <code>nodes.get(j)</code>.</div>
 </div>
@@ -131,26 +130,41 @@ from <code>nodes.get(i)</code> to <code>nodes.get(j)</code>.</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addEdge(sys.pro.GraphNode,sys.pro.GraphNode)" class="member-name-link">addEdge</a><wbr>(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node1,
  <a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node2)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Adds a directed edge from <code>node1</code> to <code>node2</code>.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addNode(sys.pro.GraphNode)" class="member-name-link">addNode</a><wbr>(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Adds the specified node to this graph.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clear()" class="member-name-link">clear</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Removes all nodes and edges from this graph.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a><wbr>&lt;<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNeighbors(sys.pro.GraphNode)" class="member-name-link">getNeighbors</a><wbr>(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the neighbors of the specified node, the nodes reachable
+from it by outgoing edges.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a><wbr>&lt;<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#nodes()" class="member-name-link">nodes</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns all nodes contained in this graph.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeEdge(sys.pro.GraphNode,sys.pro.GraphNode)" class="member-name-link">removeEdge</a><wbr>(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node1,
  <a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node2)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Removes the directed edge from <code>node1</code> to <code>node2</code>.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeNode(sys.pro.GraphNode)" class="member-name-link">removeNode</a><wbr>(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Removes the specified node and all edges incident to it from this graph.</div>
+</div>
 </div>
 </div>
 </div>
@@ -198,6 +212,13 @@ index in <code>matrix</code>.</div>
 <h3>addNode</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addNode</span><wbr><span class="parameters">(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#addNode(sys.pro.GraphNode)">Graph</a></code></span></div>
+<div class="block">Adds the specified node to this graph.
+If the node is already present, the graph is left unchanged.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>node</code> - the node to add</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -206,6 +227,13 @@ index in <code>matrix</code>.</div>
 <h3>removeNode</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeNode</span><wbr><span class="parameters">(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#removeNode(sys.pro.GraphNode)">Graph</a></code></span></div>
+<div class="block">Removes the specified node and all edges incident to it from this graph.
+If the node is not present, the graph is left unchanged.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>node</code> - the node to remove</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -215,6 +243,14 @@ index in <code>matrix</code>.</div>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addEdge</span><wbr><span class="parameters">(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node1,
  <a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node2)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#addEdge(sys.pro.GraphNode,sys.pro.GraphNode)">Graph</a></code></span></div>
+<div class="block">Adds a directed edge from <code>node1</code> to <code>node2</code>.
+If either node is not present, implementations may add it automatically.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>node1</code> - the source node of the edge</dd>
+<dd><code>node2</code> - the target node of the edge</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -224,6 +260,14 @@ index in <code>matrix</code>.</div>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeEdge</span><wbr><span class="parameters">(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node1,
  <a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node2)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#removeEdge(sys.pro.GraphNode,sys.pro.GraphNode)">Graph</a></code></span></div>
+<div class="block">Removes the directed edge from <code>node1</code> to <code>node2</code>.
+If the edge or either node does not exist, the graph is left unchanged.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>node1</code> - the source node of the edge</dd>
+<dd><code>node2</code> - the target node of the edge</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -232,6 +276,16 @@ index in <code>matrix</code>.</div>
 <h3>getNeighbors</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&gt;</span>&nbsp;<span class="element-name">getNeighbors</span><wbr><span class="parameters">(<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&nbsp;node)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getNeighbors(sys.pro.GraphNode)">Graph</a></code></span></div>
+<div class="block">Returns the neighbors of the specified node, the nodes reachable
+from it by outgoing edges.
+If the specified node is not present in this graph, an empty list is returned.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>node</code> - the node whose neighbors are requested</dd>
+<dt>Returns:</dt>
+<dd>a list of neighbor nodes</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -240,6 +294,8 @@ index in <code>matrix</code>.</div>
 <h3>clear</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">clear</span>()</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#clear()">Graph</a></code></span></div>
+<div class="block">Removes all nodes and edges from this graph.</div>
 </div>
 </section>
 </li>
@@ -248,6 +304,12 @@ index in <code>matrix</code>.</div>
 <h3>nodes</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="GraphNode.html" title="class in sys.pro">GraphNode</a>&gt;</span>&nbsp;<span class="element-name">nodes</span>()</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#nodes()">Graph</a></code></span></div>
+<div class="block">Returns all nodes contained in this graph.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>a list of nodes in this graph</dd>
+</dl>
 </div>
 </section>
 </li>
