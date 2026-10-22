@@ -2,10 +2,24 @@ package sys.pro;
 
 import java.util.ArrayList;
 
+/**
+ * Graph implementation: Adjacency matrix.
+ * <p>
+ * {@code matrix.get(i).get(j)} is {@code true} if there is an edge
+ * from {@code nodes.get(i)} to {@code nodes.get(j)}.
+ */
 public class GraphMatrix extends AbstractGraph {
+    /**
+     * List of nodes stored in this adjacency-matrix graph.
+     * The index of a node in this list corresponds to its row and column
+     * index in {@link #matrix}.
+     */
     public ArrayList<GraphNode> nodes;
     private ArrayList<ArrayList<Boolean>> matrix;
 
+    /**
+     * Creates an empty adjacency-matrix graph.
+     */
     GraphMatrix() {
         this.nodes = new ArrayList<>();
         this.matrix = new ArrayList<>();

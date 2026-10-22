@@ -3,9 +3,16 @@ package sys.pro;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Graph implementation: Adjacency list.
+ * Each key is a node, and the corresponding value is the list of its neighbors.
+ */
 public class GraphList extends AbstractGraph {
     public HashMap<GraphNode, ArrayList<GraphNode>> nodes;
 
+    /**
+     * Creates an empty adjacency-list graph.
+     */
     GraphList() {
         this.nodes = new HashMap<>();
     }

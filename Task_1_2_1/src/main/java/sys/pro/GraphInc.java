@@ -2,14 +2,44 @@ package sys.pro;
 
 import java.util.ArrayList;
 
+/**
+ * Graph implementation: Incidence matrix.
+ * Each row corresponds to a node from {@link #nodes}, and each column
+ * corresponds to an edge. Cell values use the constants {@link #BEGIN},
+ * {@link #END}, {@link #SELF}, and {@link #NOTHING}.
+ */
 public class GraphInc extends AbstractGraph {
+    /**
+     * List of nodes stored in this incidence-matrix graph.
+     * The index of a node in this list corresponds to its row index
+     * in {@link #incidency}.
+     */
     public ArrayList<GraphNode> nodes;
     public ArrayList<ArrayList<Integer>> incidency;
+
+    /**
+     * Incidence-matrix value indicating the source node of a directed edge.
+     */
     private static final int BEGIN = -1;
+
+    /**
+     * Incidence-matrix value indicating the target node of a directed edge.
+     */
     private static final int END = 1;
+
+    /**
+     * Incidence-matrix value indicating a self-loop.
+     */
     private static final int SELF = 2;
+
+    /**
+     * Incidence-matrix value indicating that a node is not incident to an edge.
+     */
     private static final int NOTHING = 0;
 
+    /**
+     * Creates an empty incidence-matrix graph.
+     */
     GraphInc() {
         this.nodes = new ArrayList<>();
         this.incidency = new ArrayList<>();
@@ -162,6 +192,11 @@ public class GraphInc extends AbstractGraph {
         this.incidency.clear();
     }
 
+    /**
+     * List of nodes stored in this incidence-matrix graph.
+     * The index of a node in this list corresponds to its row index
+     * in {@link #incidency}.
+     */
     @Override
     public ArrayList<GraphNode> nodes() {
         return this.nodes;

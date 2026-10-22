@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Abstract contract test for {@link TopSort} run against a specific
  * {@link Graph} implementation.
- * <p>
  * Every subclass supplies a {@link #createGraph()} factory; the inherited tests
  * verify that the algorithm produces a valid topological order on any DAG,
  * includes all nodes, and detects cycles (including self-loops).

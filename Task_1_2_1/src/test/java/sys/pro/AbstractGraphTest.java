@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Abstract contract test for all {@link Graph} implementations.
- * <p>
  * Concrete implementations extend this class and supply a {@link #createGraph()}
  * factory method. Every inherited test verifies the same public contract, so
  * {@link GraphList}, {@link GraphMatrix} and {@link GraphInc} are guaranteed
