@@ -17,7 +17,6 @@ abstract class AbstractTopSortTest {
 
     /**
      * Verifies that {@code result} is a valid topological order for {@code graph}.
-     * <p>
      * For every edge {@code u -> v} in the graph, {@code u} must appear strictly
      * before {@code v} in {@code result}.
      *

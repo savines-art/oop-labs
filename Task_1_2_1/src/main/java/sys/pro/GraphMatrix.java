@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 /**
  * Graph implementation: Adjacency matrix.
- * <p>
  * {@code matrix.get(i).get(j)} is {@code true} if there is an edge
  * from {@code nodes.get(i)} to {@code nodes.get(j)}.
  */
@@ -39,7 +38,7 @@ public class GraphMatrix extends AbstractGraph {
         ArrayList<Boolean> newRow = new ArrayList<>(n);
         for (int i = 0; i < n; i++) {
             newRow.add(false);
-        };
+        }
         this.matrix.add(newRow);
     }
 
