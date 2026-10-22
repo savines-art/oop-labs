@@ -2,9 +2,21 @@ package sys.pro;
 
 import java.util.ArrayList;
 
+/**
+ * Skeletal implementation of the {@link Graph} interface.
+ *
+ * <p>
+ * This class provides common behavior shared by all graph implementations:
+ * a textual representation of the graph, content-based equality between
+ * graphs, and a default {@link #size()} implementation based on {@link #nodes()}.
+ * Concrete subclasses are expected to provide the underlying storage
+ * (for example, an adjacency list, adjacency matrix, or incidence matrix)
+ * and implement the remaining {@link Graph} operations.
+ */
 public abstract class AbstractGraph implements Graph {
     /**
      * Returns a string representation of this graph.
+     *
      * <p>
      * For each node, the output contains the node followed by an arrow and
      * a comma-separated list of its neighbors.
@@ -28,8 +40,18 @@ public abstract class AbstractGraph implements Graph {
         return ret.toString();
     }
 
-
-
+    /**
+     * Compares this graph with another object for equality.
+     * The object is considered equal if it is itself a {@link Graph} and
+     * satisfies the graph-equality contract described in
+     * {@link #equals(Graph, Graph)}. This method is consistent with the
+     * general contract of {@link Object#equals(Object)}: it is reflexive,
+     * symmetric, and transitive, and it returns {@code false} for {@code null}.
+     *
+     * @param obj the object to compare with
+     * @return {@code true} if the specified object is a graph equal to this one;
+     *         {@code false} otherwise
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -48,7 +70,6 @@ public abstract class AbstractGraph implements Graph {
 
     /**
      * Compares two graphs for equality.
-     * <p>
      * Graphs are considered equal if they contain the same nodes and, for every
      * matching node, the same sets of neighbors. The comparison is order-insensitive.
      *

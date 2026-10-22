@@ -123,7 +123,9 @@ public class GraphInc extends AbstractGraph {
      *         edge exists or if either node index is invalid
      */
     private int findColumn(int nodeIndex1, int nodeIndex2) {
-        if (nodeIndex1 == -1 || nodeIndex2 == -1) return -1;
+        if (nodeIndex1 == -1 || nodeIndex2 == -1) {
+            return -1;
+        }
 
         ArrayList<Integer> raw1 = this.incidency.get(nodeIndex1);
         ArrayList<Integer> raw2 = this.incidency.get(nodeIndex2);
@@ -131,7 +133,8 @@ public class GraphInc extends AbstractGraph {
         int s = raw1.size();
 
         for (int i = 0; i < s; i++) {
-            if ((raw1.get(i) == BEGIN && raw2.get(i) == END) || (nodeIndex1 == nodeIndex2 && raw1.get(i) == SELF)) {
+            if ((raw1.get(i) == BEGIN && raw2.get(i) == END)
+                    || (nodeIndex1 == nodeIndex2 && raw1.get(i) == SELF)) {
                 return i;
             }
         }

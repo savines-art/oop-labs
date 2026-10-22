@@ -2,6 +2,11 @@ package sys.pro;
 
 import java.util.Objects;
 
+/**
+ * Implementation of graph node (or vertex).
+ * Contains an integer value.
+ * Every node in graph is unique by its value.
+ */
 public class GraphNode {
     public final int value;
 
@@ -34,7 +39,6 @@ public class GraphNode {
 
     /**
      * Compares this node with another object for equality.
-     * <p>
      * Two nodes are considered equal if they are {@code GraphNode} instances
      * with the same integer value.
      *
