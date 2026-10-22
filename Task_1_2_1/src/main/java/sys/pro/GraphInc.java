@@ -113,7 +113,6 @@ public class GraphInc extends AbstractGraph {
     /**
      * Finds the incidence-matrix column that represents the directed edge
      * from the first specified node to the second specified node.
-     * <p>
      * If both indexes refer to the same node, this method searches for a
      * self-loop column.
      *

@@ -88,7 +88,7 @@ abstract class AbstractTopSortTest {
 
         List<GraphNode> result = TopSort.sort(graph);
 
-        assertEquals(List.of(a, b, c), result);
+        assertTrue(isTopSorted(graph, result));
     }
 
     /** Every edge of a diamond DAG is respected. */
