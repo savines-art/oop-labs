@@ -144,7 +144,8 @@ class RecordBookTest {
     }
 
     /**
-     * Verifies that a red diploma is available without a qualifying work before the eighth semester.
+     * Verifies that a red diploma
+     * is available without a qualifying work before the eighth semester.
      */
     @Test
     void canGetRedDiplomaTrueWithoutQualWorkBeforeEighthSemester() {

@@ -141,7 +141,8 @@ public class RecordBook {
                         .collect(Collectors.toMap(
                                 Subject::getName,
                                 s -> s,
-                                BinaryOperator.maxBy(Comparator.comparingInt(Subject::getSemester))));
+                                BinaryOperator.maxBy(Comparator
+                                        .comparingInt(Subject::getSemester))));
 
         boolean allCredits = this.subjects.stream()
                 .filter(RecordBook::isCredit)
@@ -186,7 +187,8 @@ public class RecordBook {
      * <p>The result is {@code true} when the record book contains at least two semesters
      * and all marks in the last semester are excellent.</p>
      *
-     * @return {@code true} if the student can receive an increased scholarship; otherwise {@code false}
+     * @return {@code true} if the student
+     * can receive an increased scholarship; otherwise {@code false}
      */
     public boolean canGetIncreasedScholarship() {
         int last = this.lastSemester();
