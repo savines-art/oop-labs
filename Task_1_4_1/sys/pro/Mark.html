@@ -101,6 +101,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="type-signature"><span class="modifiers">public enum </span><span class="element-name type-name-label">Mark</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Enum.html" title="class or interface in java.lang" class="external-link">Enum</a>&lt;<a href="Mark.html" title="enum class in sys.pro">Mark</a>&gt;</span></div>
+<div class="block">Represents a mark that can be received for a subject.</div>
 </div>
 </section>
 <section class="summary">
@@ -146,7 +147,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>final int</code></div>
 <div class="col-second even-row-color"><code><a href="#value" class="member-name-link">value</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Numeric value of the mark.</div>
+</div>
 </div>
 </section>
 </li>
@@ -163,13 +166,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValue()" class="member-name-link">getValue</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the numeric value of this mark.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isExcellent()" class="member-name-link">isExcellent</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks whether this mark is considered excellent.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isGood()" class="member-name-link">isGood</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks whether this mark is considered good.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Mark.html" title="enum class in sys.pro">Mark</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#valueOf(java.lang.String)" class="member-name-link">valueOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
@@ -254,6 +263,7 @@ the order they are declared.</div>
 <h3>value</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">value</span></div>
+<div class="block">Numeric value of the mark.</div>
 </div>
 </section>
 </li>
@@ -305,6 +315,13 @@ not permitted.)</div>
 <h3>getValue</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getValue</span>()</div>
+<div class="block">Returns the numeric value of this mark.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the numeric value of this mark</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if this mark is <a href="#CREDIT"><code>CREDIT</code></a> or <a href="#NO_CREDIT"><code>NO_CREDIT</code></a></dd>
+</dl>
 </div>
 </section>
 </li>
@@ -313,6 +330,12 @@ not permitted.)</div>
 <h3>isGood</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isGood</span>()</div>
+<div class="block">Checks whether this mark is considered good.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd><code>true</code> if this mark is <a href="#CREDIT"><code>CREDIT</code></a>, <a href="#FOUR"><code>FOUR</code></a>, or <a href="#FIVE"><code>FIVE</code></a>;
+        otherwise <code>false</code></dd>
+</dl>
 </div>
 </section>
 </li>
@@ -321,6 +344,12 @@ not permitted.)</div>
 <h3>isExcellent</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isExcellent</span>()</div>
+<div class="block">Checks whether this mark is considered excellent.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd><code>true</code> if this mark is <a href="#CREDIT"><code>CREDIT</code></a> or <a href="#FIVE"><code>FIVE</code></a>;
+        otherwise <code>false</code></dd>
+</dl>
 </div>
 </section>
 </li>

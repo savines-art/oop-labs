@@ -78,6 +78,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">RecordBook</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Stores subject results and evaluates academic status.</div>
 </div>
 </section>
 <section class="summary">
@@ -95,22 +96,32 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#canGetIncreasedScholarship()" class="member-name-link">canGetIncreasedScholarship</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Determines whether the student can receive an increased scholarship.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#canGetRedDiploma()" class="member-name-link">canGetRedDiploma</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Determines whether the student can receive a red diploma.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#canGoOnFreeStudying()" class="member-name-link">canGoOnFreeStudying</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Determines whether the student can continue on free studying.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAverageGrade()" class="member-name-link">getAverageGrade</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Calculates the average grade over all gradable subjects.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#passSubject(int,java.lang.String,sys.pro.SubjectType,sys.pro.Mark)" class="member-name-link">passSubject</a><wbr>(int&nbsp;semester,
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  <a href="SubjectType.html" title="enum class in sys.pro">SubjectType</a>&nbsp;type,
  <a href="Mark.html" title="enum class in sys.pro">Mark</a>&nbsp;mark)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Adds a subject result to the record book.</div>
+</div>
 </div>
 </div>
 </div>
@@ -136,6 +147,14 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  <a href="SubjectType.html" title="enum class in sys.pro">SubjectType</a>&nbsp;type,
  <a href="Mark.html" title="enum class in sys.pro">Mark</a>&nbsp;mark)</span></div>
+<div class="block">Adds a subject result to the record book.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>semester</code> - the semester number</dd>
+<dd><code>name</code> - the subject name</dd>
+<dd><code>type</code> - the subject type</dd>
+<dd><code>mark</code> - the received mark</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -144,6 +163,11 @@ loadScripts(document, 'script');</script>
 <h3>getAverageGrade</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getAverageGrade</span>()</div>
+<div class="block">Calculates the average grade over all gradable subjects.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the average numeric grade, or <code>0.0</code> if there are no gradable subjects</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -152,6 +176,15 @@ loadScripts(document, 'script');</script>
 <h3>canGoOnFreeStudying</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">canGoOnFreeStudying</span>()</div>
+<div class="block">Determines whether the student can continue on free studying.
+
+<p>The result is <code>true</code> when the record book contains at least two semesters,
+all gradable subjects in the last and previous semesters have good marks, and all
+credits are passed.</p></div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd><code>true</code> if the student can continue on free studying; otherwise <code>false</code></dd>
+</dl>
 </div>
 </section>
 </li>
@@ -160,6 +193,16 @@ loadScripts(document, 'script');</script>
 <h3>canGetRedDiploma</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">canGetRedDiploma</span>()</div>
+<div class="block">Determines whether the student can receive a red diploma.
+
+<p>The result is <code>true</code> when all credits are passed, no gradable subject has
+mark <a href="Mark.html#THREE"><code>Mark.THREE</code></a>, the qualifying work is absent or marked <a href="Mark.html#FIVE"><code>Mark.FIVE</code></a>,
+and, from the eighth semester onward, at least 75 percent of gradable subjects are
+marked <a href="Mark.html#FIVE"><code>Mark.FIVE</code></a>.</p></div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd><code>true</code> if the student can receive a red diploma; otherwise <code>false</code></dd>
+</dl>
 </div>
 </section>
 </li>
@@ -168,6 +211,14 @@ loadScripts(document, 'script');</script>
 <h3>canGetIncreasedScholarship</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">canGetIncreasedScholarship</span>()</div>
+<div class="block">Determines whether the student can receive an increased scholarship.
+
+<p>The result is <code>true</code> when the record book contains at least two semesters
+and all marks in the last semester are excellent.</p></div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd><code>true</code> if the student can receive an increased scholarship; otherwise <code>false</code></dd>
+</dl>
 </div>
 </section>
 </li>

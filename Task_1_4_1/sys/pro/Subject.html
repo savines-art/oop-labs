@@ -87,10 +87,18 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>Record Components:</dt>
+<dd><code><span id="param-semester">semester</span></code> - the semester number</dd>
+<dd><code><span id="param-name">name</span></code> - the subject name</dd>
+<dd><code><span id="param-type">type</span></code> - the subject type</dd>
+<dd><code><span id="param-mark">mark</span></code> - the received mark</dd>
+</dl>
 <hr>
 <div class="horizontal-scroll">
 <div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">Subject</span>(int&nbsp;semester, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name, <a href="SubjectType.html" title="enum class in sys.pro">SubjectType</a>&nbsp;type, <a href="Mark.html" title="enum class in sys.pro">Mark</a>&nbsp;mark)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
+<div class="block">Immutable record representing a subject result.</div>
 </div>
 </section>
 <section class="summary">
@@ -108,7 +116,7 @@ loadScripts(document, 'script');</script>
  <a href="SubjectType.html" title="enum class in sys.pro">SubjectType</a>&nbsp;type,
  <a href="Mark.html" title="enum class in sys.pro">Mark</a>&nbsp;mark)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Creates an instance of a <code>Subject</code> record class.</div>
+<div class="block">Validates the semester number.</div>
 </div>
 </div>
 </section>
@@ -131,13 +139,19 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Mark.html" title="enum class in sys.pro">Mark</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMark()" class="member-name-link">getMark</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the mark received for this subject.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getName()" class="member-name-link">getName</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the name of this subject.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSemester()" class="member-name-link">getSemester</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the semester number of this subject.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -146,17 +160,17 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Mark.html" title="enum class in sys.pro">Mark</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#mark()" class="member-name-link">mark</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>mark</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-mark"><code>mark</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#name()" class="member-name-link">name</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>name</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-name"><code>name</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#semester()" class="member-name-link">semester</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>semester</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-semester"><code>semester</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -166,7 +180,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SubjectType.html" title="enum class in sys.pro">SubjectType</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#type()" class="member-name-link">type</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>type</code> record component.</div>
+<div class="block">Returns the type of this subject.</div>
 </div>
 </div>
 </div>
@@ -193,13 +207,15 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  <a href="SubjectType.html" title="enum class in sys.pro">SubjectType</a>&nbsp;type,
  <a href="Mark.html" title="enum class in sys.pro">Mark</a>&nbsp;mark)</span></div>
-<div class="block">Creates an instance of a <code>Subject</code> record class.</div>
+<div class="block">Validates the semester number.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>semester</code> - the value for the <code>semester</code> record component</dd>
-<dd><code>name</code> - the value for the <code>name</code> record component</dd>
-<dd><code>type</code> - the value for the <code>type</code> record component</dd>
-<dd><code>mark</code> - the value for the <code>mark</code> record component</dd>
+<dd><code>semester</code> - the semester number</dd>
+<dd><code>name</code> - the subject name</dd>
+<dd><code>type</code> - the subject type</dd>
+<dd><code>mark</code> - the received mark</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if the semester number is outside the range 1 to 8</dd>
 </dl>
 </div>
 </section>
@@ -217,6 +233,11 @@ loadScripts(document, 'script');</script>
 <h3>getMark</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Mark.html" title="enum class in sys.pro">Mark</a></span>&nbsp;<span class="element-name">getMark</span>()</div>
+<div class="block">Returns the mark received for this subject.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the mark</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -225,6 +246,11 @@ loadScripts(document, 'script');</script>
 <h3>getSemester</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getSemester</span>()</div>
+<div class="block">Returns the semester number of this subject.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the semester number</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -233,10 +259,10 @@ loadScripts(document, 'script');</script>
 <h3>type</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SubjectType.html" title="enum class in sys.pro">SubjectType</a></span>&nbsp;<span class="element-name">type</span>()</div>
-<div class="block">Returns the value of the <code>type</code> record component.</div>
+<div class="block">Returns the type of this subject.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>type</code> record component</dd>
+<dd>the subject type</dd>
 </dl>
 </div>
 </section>
@@ -246,6 +272,11 @@ loadScripts(document, 'script');</script>
 <h3>getName</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getName</span>()</div>
+<div class="block">Returns the name of this subject.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the subject name</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -301,10 +332,10 @@ loadScripts(document, 'script');</script>
 <h3>semester</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">semester</span>()</div>
-<div class="block">Returns the value of the <code>semester</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-semester"><code>semester</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>semester</code> record component</dd>
+<dd>the value of the <a href="#param-semester"><code>semester</code></a> record component</dd>
 </dl>
 </div>
 </section>
@@ -314,10 +345,10 @@ loadScripts(document, 'script');</script>
 <h3>name</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">name</span>()</div>
-<div class="block">Returns the value of the <code>name</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-name"><code>name</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>name</code> record component</dd>
+<dd>the value of the <a href="#param-name"><code>name</code></a> record component</dd>
 </dl>
 </div>
 </section>
@@ -327,10 +358,10 @@ loadScripts(document, 'script');</script>
 <h3>mark</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Mark.html" title="enum class in sys.pro">Mark</a></span>&nbsp;<span class="element-name">mark</span>()</div>
-<div class="block">Returns the value of the <code>mark</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-mark"><code>mark</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>mark</code> record component</dd>
+<dd>the value of the <a href="#param-mark"><code>mark</code></a> record component</dd>
 </dl>
 </div>
 </section>
