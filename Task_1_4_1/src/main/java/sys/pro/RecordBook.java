@@ -189,7 +189,7 @@ public class RecordBook {
      * and all marks in the last semester are excellent.</p>
      *
      * @return {@code true} if the student
-     * can receive an increased scholarship; otherwise {@code false}.
+     *     can receive an increased scholarship; otherwise {@code false}.
      */
     public boolean canGetIncreasedScholarship() {
         int last = this.lastSemester();
