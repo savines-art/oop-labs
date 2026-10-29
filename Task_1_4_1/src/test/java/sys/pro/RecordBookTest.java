@@ -69,7 +69,7 @@ class RecordBookTest {
         pass(1, "Credit", SubjectType.CREDIT, Mark.CREDIT);
         pass(1, "QualWork", SubjectType.QUALWORK, Mark.FIVE);
 
-        assertEquals(4.5, book.getAverageGrade(), 1e-9);
+        assertEquals((double) 14 / 3, book.getAverageGrade(), 1e-9);
     }
 
     /**
@@ -205,6 +205,19 @@ class RecordBookTest {
     }
 
     /**
+     * Verifies that a red diploma is available at more than 75 percent from the eighth semester.
+     */
+    @Test
+    void canGetRedDiplomaTrueAtMoreThan75PercentFromEighthSemester() {
+        pass(8, "Exam A", SubjectType.EXAM, Mark.FIVE);
+        pass(8, "DiffCredit B", SubjectType.DIFFCREDIT, Mark.FIVE);
+        pass(8, "Exam C", SubjectType.EXAM, Mark.FIVE);
+        pass(8, "DiffCredit D", SubjectType.DIFFCREDIT, Mark.FIVE);
+
+        assertTrue(book.canGetRedDiploma());
+    }
+
+    /**
      * Verifies that a red diploma is unavailable below 75 percent from the eighth semester.
      */
     @Test
@@ -215,6 +228,14 @@ class RecordBookTest {
         pass(8, "DiffCredit D", SubjectType.DIFFCREDIT, Mark.FOUR);
 
         assertFalse(book.canGetRedDiploma());
+    }
+
+    /**
+     * Verifies that a red diploma is available if there is no grades yet.
+     */
+    @Test
+    void testIsEligibleForRedDiploma_Empty() {
+        assertTrue(book.canGetRedDiploma());
     }
 
     /**

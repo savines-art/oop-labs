@@ -71,7 +71,8 @@ public class RecordBook {
      */
     private static boolean gradable(Subject subject) {
         return subject.type() == SubjectType.DIFFCREDIT
-                || subject.type() == SubjectType.EXAM;
+                || subject.type() == SubjectType.EXAM
+                || subject.type() == SubjectType.QUALWORK;
     }
 
     /**
